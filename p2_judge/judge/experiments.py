@@ -84,7 +84,7 @@ def run_retest() -> None:
 def run_self_enhancement() -> None:
     suite = load_suite("suites/main.yaml")["cases"]
     cfg_gpt, cfg_qwen = load_config("configs/gen_gptoss.yaml"), load_config("configs/gen_v2.yaml")
-    with ThreadPoolExecutor(4) as ex:
+    with ThreadPoolExecutor(1) as ex:
         out_gpt = {g["case_id"]: g["output"] for g in ex.map(lambda c: generate(c, cfg_gpt), suite)}
         out_qwen = {g["case_id"]: g["output"] for g in ex.map(lambda c: generate(c, cfg_qwen), suite)}
     res = {}

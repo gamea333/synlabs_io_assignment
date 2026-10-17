@@ -70,7 +70,7 @@ def request_hash(model: str, messages: list[dict], temperature: float, max_token
 
 def chat(role: str, messages: list[dict], model: str | None = None, temperature: float | None = None,
          max_tokens: int = 1200, json_mode: bool = False, sample: int = 0, tag: str = "",
-         max_attempts: int = 10) -> Call:
+         max_attempts: int = 60) -> Call:   # throttling is expected on free tier: keep waiting
     s = get_settings()
     model = model or (s.judge_model if role == "judge" else s.generator_model)
     temperature = (s.judge_temperature if role == "judge" else s.generator_temperature) \

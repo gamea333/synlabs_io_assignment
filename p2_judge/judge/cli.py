@@ -40,7 +40,7 @@ def _outputs(cases: list[dict], gen_cfg: dict | None) -> dict[str, str]:
         if missing:
             raise SystemExit(f"cases without model_output and no --gen config: {missing}")
         return {c["id"]: c["model_output"] for c in cases}
-    with ThreadPoolExecutor(4) as ex:
+    with ThreadPoolExecutor(1) as ex:   # generator (Qwen) has a 1K output-token/min cap: no point in parallel
         gens = list(ex.map(lambda c: generate(c, gen_cfg), cases))
     return {g["case_id"]: g["output"] for g in gens}
 
