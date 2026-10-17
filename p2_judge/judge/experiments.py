@@ -27,6 +27,7 @@ from judge.suite import load_config, load_suite
 
 log = logging.getLogger("exp")
 RES = Path("results")
+POINTWISE_PROBE_TYPES = ("padded", "confident_wrong")
 SECOND_JUDGE = "qwen/qwen3.8-27b"        # same family as the generator -> used to measure self-enhancement
 
 
@@ -60,10 +61,11 @@ def run_probes() -> None:
         out["pairwise"][version] = pairs
         log.info("probes pairwise %s done", version)
         with ThreadPoolExecutor(2) as ex:
-            pw = list(ex.map(lambda x: judge_pointwise(x[0]["case"], x[0][x[1]], version),
-                             [(p, side) for p in probes for side in ("good", "bad")]))
-        out["pointwise"][version] = [{"probe": probes[i // 2]["id"], "side": ("good", "bad")[i % 2], **r}
-                                     for i, r in enumerate(pw)]
+            # pointwise only where it is the evidence: padded (verbosity) and confident_wrong (sycophancy).
+            # verbose_wrong / control are covered pairwise; skipping them saves ~40 rate-limited calls.
+            jobs = [(p, side) for p in probes if p["type"] in POINTWISE_PROBE_TYPES for side in ("good", "bad")]
+            pw = list(ex.map(lambda x: judge_pointwise(x[0]["case"], x[0][x[1]], version), jobs))
+        out["pointwise"][version] = [{"probe": p["id"], "side": side, **r} for (p, side), r in zip(jobs, pw)]
         log.info("probes pointwise %s done", version)
     _save("probes_raw.json", out)
 
@@ -77,12 +79,12 @@ def run_retest() -> None:
     suite = {c["id"]: c for c in load_suite("suites/main.yaml")["cases"]}
     with ThreadPoolExecutor(2) as ex:
         pw = list(ex.map(lambda cid: judge_pointwise(suite[cid], ab["outputs_B"][cid], "v1", sample=1),
-                         list(ab["outputs_B"])))
+                         list(ab["outputs_B"])[::2]))          # 12 of 24 cases, every other one
     _save("retest_raw.json", {"pairwise_probes_v1_sample1": pairs, "pointwise_suiteB_v1_sample1": pw})
 
 
 def run_self_enhancement() -> None:
-    suite = load_suite("suites/main.yaml")["cases"]
+    suite = load_suite("suites/main.yaml")["cases"][::2]   # 12 of 24 (every other case -> all task types)
     cfg_gpt, cfg_qwen = load_config("configs/gen_gptoss.yaml"), load_config("configs/gen_v2.yaml")
     with ThreadPoolExecutor(1) as ex:
         out_gpt = {g["case_id"]: g["output"] for g in ex.map(lambda c: generate(c, cfg_gpt), suite)}
@@ -240,7 +242,7 @@ def build_report() -> None:
         report["self_enhancement"] = {
             "mitigation": "production judge gpt-oss-120b (OpenAI) is a different family from the production "
                           "generator qwen3.8-27b (Alibaba)",
-            "setup": "same 24 prompts answered by gpt-oss-20b (A, OpenAI) and qwen3.8-27b (B, Alibaba) with the "
+            "setup": "12 prompts (every other suite case) answered by gpt-oss-20b (A, OpenAI) and qwen3.8-27b (B, Alibaba) with the "
                      "same prompt; judged pairwise (v1, both orders) by gpt-oss-120b and by qwen3.8-27b",
             "gptoss_judge_win_rate_for_openai_outputs": g_for_openai, "gptoss_judge_finals": g_f,
             "qwen_judge_win_rate_for_openai_outputs": q_for_openai, "qwen_judge_finals": q_f,
