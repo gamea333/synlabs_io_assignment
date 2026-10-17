@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>P2 judge pipeline</title>
+<style>
+  body { margin: 0; padding: 16px; width: 1100px; background: #ffffff; font-family: Segoe UI, Arial, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 12px; color: #1f3b57; }
+  .note { font-size: 12px; color: #555; margin-top: 8px; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+<h1>P2 — LLM-as-Judge pipeline: suite in → structured verdicts → report / A-B decision</h1>
+<pre class="mermaid">
+flowchart TB
+  S[Test suite JSON / YAML<br/>id, input, system_prompt, model_output?,<br/>expected_output?, criteria?, context?] --> L[load_suite: schema + duplicate-id check]
+  L --> G{model_output present?}
+  G -- no --> GEN[Generator config A or B<br/>GENERATOR_* env: qwen3.8-27b<br/>prompt v1 / prompt v2]
+  G -- yes --> P
+  GEN --> P[Judging-prompt construction<br/>v1: anchored 6-criterion rubric + calibration examples<br/>+ evidence-quote rule + 'length is not quality'<br/>+ 'confidence is not evidence' + code-computed counts]
+  P --> PW[Pointwise<br/>per-criterion 1-5]
+  P --> SWAP[POSITION-BIAS MITIGATION<br/>pairwise run twice: A,B then B,A<br/>map 2nd verdict back to config labels]
+  PW --> J[Judge model call<br/>JUDGE_* env: gpt-oss-120b<br/>JSON mode, temperature 0]
+  SWAP --> J
+  J --> LOG[(logs/calls.jsonl<br/>full prompt + raw response + tokens<br/>audit log AND replay cache)]
+  J --> PARSE[VERDICT PARSE LADDER<br/>strict json → extract outer object → repair<br/>→ retry once → regex fallback → 'failed' counted]
+  PARSE --> VAL[Schema validation<br/>clamp + flag out-of-range, missing criteria]
+  VAL --> CASE[Per-case aggregation<br/>weighted score, pass = >=3.5 and floors<br/>pairwise final = agree ? verdict : tie]
+  CASE --> REP[Suite report<br/>pass rate, mean + per-criterion scores,<br/>win rate, flip rate, parse stats, judge calls/tokens]
+  REP --> DEC[A/B decision<br/>sign test + bootstrap CI, rule fixed in advance]
+  style SWAP fill:#fff3cd,stroke:#b7791f
+  style PARSE fill:#e3f0fb,stroke:#1f3b57
+  style LOG fill:#eef7ee,stroke:#2f7a3b
+</pre>
+<div class="note">Yellow = position-bias order swap. Blue = malformed-JSON recovery. Green = auditable, replayable call log. Judge and generator use separate env vars and model families.</div>
+<script>mermaid.initialize({ startOnLoad: true, theme: "default", flowchart: { htmlLabels: true, curve: "basis", nodeSpacing: 30, rankSpacing: 36 }, themeVariables: { fontSize: "17px" } });</script>
+</body>
+</html>
