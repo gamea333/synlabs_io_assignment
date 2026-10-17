@@ -95,8 +95,8 @@ def chat(role: str, messages: list[dict], model: str | None = None, temperature:
             r = _client(role).chat.completions.create(model=model, messages=messages, temperature=temperature,
                                                       max_tokens=max_tokens, **kwargs)
         except (RateLimitError, APIConnectionError, InternalServerError) as e:
-            if attempt == max_attempts - 1:
-                raise
+            if attempt == max_attempts - 1 or "Request too large" in str(e):
+                raise   # a request that can never fit the provider's per-minute cap must not be retried
             wait = min(2 ** attempt, 30)
             if isinstance(e, RateLimitError) and e.response is not None:
                 try:

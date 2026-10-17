@@ -1,6 +1,7 @@
 """Judging engine: pointwise rubric scoring and position-debiased pairwise comparison."""
 import logging
 
+from judge.config import get_settings
 from judge.llm import chat
 from judge.parsing import ParseError, parse_json, regex_fallback, validate_pairwise, validate_pointwise
 from judge.prompts import PAIRWISE, POINTWISE
@@ -13,14 +14,27 @@ RETRY_MSG = "Your previous output was not valid JSON. Return ONLY the JSON objec
 def _call_and_parse(messages: list[dict], tag: str, sample: int, model: str | None,
                     validate, criteria: list[str]) -> tuple[dict | None, dict]:
     """Run the parse ladder. Returns (validated verdict or None, meta)."""
-    calls = [chat("judge", messages, model=model, json_mode=True, sample=sample, tag=tag)]
+    model = model or get_settings().judge_model
+    # Groq caps Qwen at 1,000 output tokens/min, so a Qwen judge must request less than that per call.
+    max_tokens = 900 if "qwen" in model else 2000
+    try:
+        calls = [chat("judge", messages, model=model, json_mode=True, sample=sample, tag=tag, max_tokens=max_tokens)]
+    except Exception as e:  # one failed call must not sink a whole suite run: record it and move on
+        log.error("judge call failed for %s: %s", tag, str(e)[:200])
+        return None, {"parse_status": "call_failed", "issues": [str(e)[:300]], "raw": "", "request_hash": None,
+                      "tokens": {"prompt": 0, "completion": 0, "calls": 1, "cache_hits": 0}}
     meta = {"parse_status": None, "issues": [], "raw": calls[0].text, "request_hash": calls[0].request_hash}
     try:
         obj, status = parse_json(calls[0].text)
     except ParseError:
         retry = messages + [{"role": "assistant", "content": calls[0].text or "(empty)"},
                             {"role": "user", "content": RETRY_MSG}]
-        calls.append(chat("judge", retry, model=model, json_mode=True, sample=sample, tag=tag + ":retry"))
+        try:
+            calls.append(chat("judge", retry, model=model, json_mode=True, sample=sample, tag=tag + ":retry",
+                              max_tokens=max_tokens))
+        except Exception as e:
+            log.error("judge retry failed for %s: %s", tag, str(e)[:200])
+            calls.append(type(calls[0])("", model, "judge", 0, 0, 0.0, 0.0, False, ""))
         meta["raw_retry"] = calls[1].text
         try:
             obj, _ = parse_json(calls[1].text)

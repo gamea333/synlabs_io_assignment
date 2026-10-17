@@ -2,7 +2,7 @@
 
   python -m judge.experiments probes        # pairwise + pointwise on known-answer probes, v0 and v1
   python -m judge.experiments retest        # test-retest of the v1 judge (fresh, uncached draws)
-  python -m judge.experiments self          # self-enhancement: qwen judge vs gpt-oss-120b judge on mixed-family pairs
+  python -m judge.experiments self          # self-enhancement: gpt-oss-120b judge vs qwen judge on mixed-family pairs
   python -m judge.experiments report        # assemble results/bias_report.json + results/judge_validation.json
 
 Gold labels for probes are known by construction. To make Cohen's kappa meaningful the "good" response is
@@ -27,7 +27,7 @@ from judge.suite import load_config, load_suite
 
 log = logging.getLogger("exp")
 RES = Path("results")
-SECOND_JUDGE = "openai/gpt-oss-120b"     # same family as the generator -> used to measure self-enhancement
+SECOND_JUDGE = "qwen/qwen3.8-27b"        # same family as the generator -> used to measure self-enhancement
 
 
 def load_probes() -> list[dict]:
@@ -83,18 +83,19 @@ def run_retest() -> None:
 
 def run_self_enhancement() -> None:
     suite = load_suite("suites/main.yaml")["cases"]
-    cfg_gpt, cfg_qwen = load_config("configs/gen_v2.yaml"), load_config("configs/gen_qwen.yaml")
+    cfg_gpt, cfg_qwen = load_config("configs/gen_gptoss.yaml"), load_config("configs/gen_v2.yaml")
     with ThreadPoolExecutor(4) as ex:
         out_gpt = {g["case_id"]: g["output"] for g in ex.map(lambda c: generate(c, cfg_gpt), suite)}
         out_qwen = {g["case_id"]: g["output"] for g in ex.map(lambda c: generate(c, cfg_qwen), suite)}
     res = {}
-    for judge_name, model in (("qwen_judge", get_settings().judge_model), ("gptoss120b_judge", SECOND_JUDGE)):
+    for judge_name, model in (("gptoss120b_judge", get_settings().judge_model), ("qwen_judge", SECOND_JUDGE)):
         # A = gpt-oss output, B = qwen output; both orders, hardened v1 prompt
         with ThreadPoolExecutor(2) as ex:
             res[judge_name] = list(ex.map(
                 lambda c: judge_pairwise(c, out_gpt[c["id"]], out_qwen[c["id"]], "v1", model=model), suite))
         log.info("self-enhancement %s done", judge_name)
     _save("self_enhancement_raw.json", {"A": "gpt-oss-20b (OpenAI family)", "B": "qwen3.8-27b (Alibaba family)",
+                                        "judges": {"gptoss120b_judge": get_settings().judge_model, "qwen_judge": SECOND_JUDGE},
                                         "outputs_A": out_gpt, "outputs_B": out_qwen, "verdicts": res})
 
 
@@ -229,19 +230,24 @@ def build_report() -> None:
             "before_v0": _clustering(v0_rows, common), "after_v1": _clustering(v1_rows, common)}
 
     if se:
-        def own_rate(pairs, own):
+        def win_rate(pairs, side):
             f = Counter(p["final"] for p in pairs)
-            return round((f.get(own, 0) + 0.5 * f.get("tie", 0)) / len(pairs), 4), dict(f)
-        q_rate, q_f = own_rate(se["verdicts"]["qwen_judge"], "B")
-        g_rate_qwen, g_f = own_rate(se["verdicts"]["gptoss120b_judge"], "B")
+            return round((f.get(side, 0) + 0.5 * f.get("tie", 0)) / len(pairs), 4), dict(f)
+        # A = gpt-oss-20b output (OpenAI family), B = qwen output (Alibaba family)
+        g_own, g_f = win_rate(se["verdicts"]["gptoss120b_judge"], "A")   # OpenAI judge -> OpenAI outputs
+        q_own, q_f = win_rate(se["verdicts"]["qwen_judge"], "B")         # Alibaba judge -> Alibaba outputs
+        g_for_openai, q_for_openai = g_own, round(1 - q_own, 4)
         report["self_enhancement"] = {
-            "mitigation": "production judge (qwen, Alibaba) is a different family from the generator (gpt-oss, OpenAI)",
-            "setup": "same 24 prompts answered by gpt-oss-20b (A) and qwen3.8-27b (B); judged by qwen and by gpt-oss-120b",
-            "qwen_judge_win_rate_for_qwen_outputs": q_rate, "qwen_judge_finals": q_f,
-            "gptoss_judge_win_rate_for_qwen_outputs": g_rate_qwen, "gptoss_judge_finals": g_f,
-            "gptoss_judge_win_rate_for_gptoss_outputs": round(1 - g_rate_qwen, 4),
-            "self_preference_gap": round(q_rate - g_rate_qwen, 4),
-            "interpretation": "gap > 0: each judge favours its own family relative to the other judge",
+            "mitigation": "production judge gpt-oss-120b (OpenAI) is a different family from the production "
+                          "generator qwen3.8-27b (Alibaba)",
+            "setup": "same 24 prompts answered by gpt-oss-20b (A, OpenAI) and qwen3.8-27b (B, Alibaba) with the "
+                     "same prompt; judged pairwise (v1, both orders) by gpt-oss-120b and by qwen3.8-27b",
+            "gptoss_judge_win_rate_for_openai_outputs": g_for_openai, "gptoss_judge_finals": g_f,
+            "qwen_judge_win_rate_for_openai_outputs": q_for_openai, "qwen_judge_finals": q_f,
+            "qwen_judge_win_rate_for_alibaba_outputs": q_own,
+            "self_preference_gap": round(g_for_openai - q_for_openai, 4),
+            "interpretation": "gap = how much more the OpenAI-family judge favours OpenAI outputs than the "
+                              "Alibaba-family judge does. > 0 means at least one judge favours its own family.",
         }
 
     if rt and raw and ab:

@@ -9,12 +9,12 @@ class Settings(BaseSettings):
 
     judge_base_url: str = "https://api.groq.com/openai/v1"
     judge_api_key: str = ""
-    judge_model: str = "qwen/qwen3.8-27b"
+    judge_model: str = "openai/gpt-oss-120b"
     judge_temperature: float = 0.0
 
     generator_base_url: str = "https://api.groq.com/openai/v1"
     generator_api_key: str = ""
-    generator_model: str = "openai/gpt-oss-20b"
+    generator_model: str = "qwen/qwen3.8-27b"
     generator_temperature: float = 0.3
 
     call_log: str = "logs/calls.jsonl"

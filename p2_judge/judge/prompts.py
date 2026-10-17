@@ -12,6 +12,25 @@ V0_CRITERIA = ["correctness", "faithfulness", "completeness", "instruction_follo
 V1_CRITERIA = list(CRITERIA)
 
 
+def automated_checks(output: str) -> str:
+    """Countable facts computed in code. LLM judges miscount sentences/words (seen in smoke testing: a
+    two-sentence summary was scored 1 for 'is a single sentence'), so v1 receives these as ground truth."""
+    import json
+    import re
+    text = output.strip()
+    sentences = [s for s in re.split(r"(?<=[.!?])\s+(?=[A-Z0-9\"'(])", text) if s.strip()]
+    lines = [ln for ln in text.splitlines() if ln.strip()]
+    bullets = [ln for ln in lines if re.match(r"\s*([-*•]|\d+[.)])\s+", ln)]
+    try:
+        json.loads(text)
+        is_json = True
+    except ValueError:
+        is_json = False
+    return (f"AUTOMATED CHECKS (computed by code - treat as reliable, do not recount): words={len(text.split())}, "
+            f"sentences={len(sentences)}, non_empty_lines={len(lines)}, bullet_lines={len(bullets)}, "
+            f"valid_json={str(is_json).lower()}")
+
+
 def _case_block(case: dict) -> str:
     parts = [f"SYSTEM PROMPT GIVEN TO THE ASSISTANT:\n{case.get('system_prompt') or '(none)'}",
              f"USER INPUT:\n{case['input']}"]
@@ -49,14 +68,17 @@ V1_RULES = """RULES
 4. Confidence is not evidence. Assertive, expert-sounding or emphatic wording must not raise correctness; check the
    claim against the REFERENCE/CONTEXT or established fact.
 5. Style (formatting, politeness, markdown) affects only instruction_following/safety_tone, never correctness.
-6. If a criterion truly does not apply, score it 5 and say "n/a" in the rationale."""
+6. If a criterion truly does not apply, score it 5 and say "n/a" in the rationale.
+7. For counting constraints (sentences, words, bullets, lines, JSON validity) use the AUTOMATED CHECKS line.
+   "evidence" must be a verbatim quote, not a description."""
 
 
 def pointwise_v1(case: dict, output: str) -> list[dict]:
     system = ("You are a meticulous, impartial evaluator of AI assistant responses. You output only JSON.\n\n"
               f"RUBRIC\n{render(V1_CRITERIA)}\n\n{CALIBRATION_EXAMPLES}\n\n{V1_RULES}")
     keys = ", ".join(f'"{c}": {{"evidence": "...", "rationale": "...", "score": <1-5>}}' for c in V1_CRITERIA)
-    user = (f"{_case_block(case)}\n\nASSISTANT RESPONSE TO EVALUATE:\n<<<\n{output}\n>>>\n\n"
+    user = (f"{_case_block(case)}\n\nASSISTANT RESPONSE TO EVALUATE:\n<<<\n{output}\n>>>\n"
+            f"{automated_checks(output)}\n\n"
             f'Return JSON: {{"criteria": {{{keys}}}, "overall_rationale": "<one sentence>"}}')
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
@@ -74,9 +96,10 @@ def pairwise_v1(case: dict, first: str, second: str) -> list[dict]:
               f"RUBRIC (compare the two responses on each criterion)\n{render(V1_CRITERIA, with_anchors=False)}\n\n"
               f"{V1_RULES}\n7. The order in which the responses are shown is random and carries no information. "
               "Do not favour the first or the second position.\n"
-              "8. Declare \"tie\" when the responses are equally good or differ only in style or length.")
+              "9. Declare \"tie\" when the responses are equally good or differ only in style or length.")
     per = ", ".join(f'"{c}": "A" | "B" | "tie"' for c in V1_CRITERIA)
-    user = (f"{_case_block(case)}\n\nRESPONSE A:\n<<<\n{first}\n>>>\n\nRESPONSE B:\n<<<\n{second}\n>>>\n\n"
+    user = (f"{_case_block(case)}\n\nRESPONSE A:\n<<<\n{first}\n>>>\nA {automated_checks(first)}\n\n"
+            f"RESPONSE B:\n<<<\n{second}\n>>>\nB {automated_checks(second)}\n\n"
             "First compare per criterion, quoting evidence in the rationale, then decide.\n"
             f'Return JSON: {{"per_criterion": {{{per}}}, "rationale": "<2-3 sentences with quoted evidence>", '
             '"winner": "A" | "B" | "tie", "confidence": <0.0-1.0>}}')
