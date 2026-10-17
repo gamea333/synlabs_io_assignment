@@ -126,7 +126,7 @@ def main() -> None:
     base = np.stack(store.table.to_arrow().column("vector").to_numpy(zero_copy_only=False)).astype(np.float32)
     queries = np.stack([emb.embed_query(q["question"]) for q in load_gold("eval/gold.json")])
     results = {"run_at": time.strftime("%Y-%m-%dT%H:%M:%S"), "k": K, "n_queries": len(queries),
-               "hardware": "local Windows laptop CPU (see README)", "runs": []}
+               "hardware": "AMD Ryzen 7 5800H (8C/16T), 15.4 GB RAM, NVMe SSD, Windows 11, single process", "runs": []}
     for n in args.sizes:
         r = bench(n, base, queries)
         results["runs"].append(r)

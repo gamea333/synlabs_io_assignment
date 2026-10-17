@@ -1,0 +1,120 @@
+{
+  "run_at": "2026-10-17T12:11:48",
+  "k": 10,
+  "n_queries": 27,
+  "hardware": "AMD Ryzen 7 5800H (8C/16T), 15.4 GB RAM, NVMe SSD, Windows 11, single process",
+  "runs": [
+    {
+      "vectors": 100000,
+      "dim": 384,
+      "raw_vector_mb": 153.6,
+      "faiss_flat": {
+        "build_s": 0.03,
+        "latency_ms": {
+          "p50": 12.25,
+          "p95": 14.53,
+          "mean": 12.48
+        },
+        "recall@10": 1.0
+      },
+      "faiss_hnsw": {
+        "build_s": 2.82,
+        "params": "M=32, efC=64, efS=64",
+        "latency_ms": {
+          "p50": 0.25,
+          "p95": 0.4,
+          "mean": 0.26
+        },
+        "recall@10": 0.7593
+      },
+      "lancedb_exact": {
+        "load_s": 0.42,
+        "latency_ms": {
+          "p50": 132.9,
+          "p95": 142.84,
+          "mean": 133.72
+        },
+        "recall@10": 1.0,
+        "disk_mb": 153.8
+      },
+      "lancedb_ivfpq_np20_rf10": {
+        "index_build_s": 76.24,
+        "params": "partitions=316, sub_vectors=48, {'nprobes': 20, 'refine': 10}",
+        "latency_ms": {
+          "p50": 25.34,
+          "p95": 36.18,
+          "mean": 26.16
+        },
+        "recall@10": 0.8444,
+        "disk_mb": 159.7
+      },
+      "lancedb_ivfpq_np50_rf20": {
+        "index_build_s": 76.24,
+        "params": "partitions=316, sub_vectors=48, {'nprobes': 50, 'refine': 20}",
+        "latency_ms": {
+          "p50": 18.51,
+          "p95": 25.16,
+          "mean": 19.58
+        },
+        "recall@10": 0.9444,
+        "disk_mb": 159.7
+      }
+    },
+    {
+      "vectors": 1000000,
+      "dim": 384,
+      "raw_vector_mb": 1536.0,
+      "faiss_flat": {
+        "build_s": 0.66,
+        "latency_ms": {
+          "p50": 186.31,
+          "p95": 200.06,
+          "mean": 185.49
+        },
+        "recall@10": 1.0
+      },
+      "faiss_hnsw": {
+        "build_s": 123.24,
+        "params": "M=32, efC=64, efS=64",
+        "latency_ms": {
+          "p50": 0.97,
+          "p95": 1.4,
+          "mean": 1.02
+        },
+        "recall@10": 0.4778
+      },
+      "lancedb_exact": {
+        "load_s": 98.26,
+        "latency_ms": {
+          "p50": 1218.48,
+          "p95": 1446.42,
+          "mean": 1253.25
+        },
+        "recall@10": 1.0,
+        "disk_mb": 1538.4
+      },
+      "lancedb_ivfpq_np20_rf10": {
+        "index_build_s": 180.18,
+        "params": "partitions=1000, sub_vectors=48, {'nprobes': 20, 'refine': 10}",
+        "latency_ms": {
+          "p50": 14.12,
+          "p95": 144.09,
+          "mean": 34.68
+        },
+        "recall@10": 0.8037,
+        "disk_mb": 1591.8
+      },
+      "lancedb_ivfpq_np50_rf20": {
+        "index_build_s": 180.18,
+        "params": "partitions=1000, sub_vectors=48, {'nprobes': 50, 'refine': 20}",
+        "latency_ms": {
+          "p50": 19.07,
+          "p95": 60.46,
+          "mean": 25.35
+        },
+        "recall@10": 0.9148,
+        "disk_mb": 1591.8
+      }
+    }
+  ]
+}

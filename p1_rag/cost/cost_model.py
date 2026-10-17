@@ -49,9 +49,10 @@ S3_PER_GB = 0.023
 
 
 def lancedb_instance(n: int) -> str:
-    # Up to ~1M x 384-d, exact (brute-force) search over ~1.5 GB fits a 4 GB box.
-    # At 10M we need an IVF_PQ index: PQ codes (48 B/vec ~ 0.5 GB) + IVF centroids in RAM,
-    # full vectors/text read from disk for re-ranking -> a 16 GB memory-optimised box.
+    # Measured (results/store_benchmark.json): LanceDB exact search is 133 ms p50 at 100K and
+    # 1.2 s at 1M, so above ~100K we build an IVF_PQ index (1M: 19 ms p50, recall@10 0.915).
+    # PQ codes are 48 B/vec (~48 MB at 1M), so a 4 GB box is enough up to 1M.
+    # At 10M: ~0.5 GB PQ codes + page cache for re-ranking reads -> 16 GB memory-optimised box.
     if n <= 1_000_000:
         return "t4g.medium"
     return "r7g.large"
