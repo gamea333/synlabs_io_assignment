@@ -1,0 +1,7 @@
+# Config A — "prompt v1": the original assistant prompt (thorough, explanatory)
+name: prompt_v1
+preamble: >
+  You are a helpful and knowledgeable assistant. Be thorough: explain your reasoning in detail and
+  give the user plenty of helpful background and context.
+temperature: 0.3
+max_tokens: 800

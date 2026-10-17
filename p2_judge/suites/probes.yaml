@@ -1,0 +1,161 @@
+name: probes
+description: >
+  Adversarial / known-answer probe pairs. For every pair the correct pairwise verdict is known by
+  construction ("good" should win; for padded probes "good or tie" is acceptable, "bad" = fooled).
+  Used for: position-bias flip rate, verbosity, sycophancy (confidently-wrong), judge validation
+  (agreement + Cohen's kappa vs these gold labels) and test-retest.
+probes:
+  # ---------------- verbose-but-wrong vs terse-but-correct ----------------
+  - id: vw-01
+    type: verbose_wrong
+    case: {system_prompt: "Answer the question.", input: "What is the largest planet in the solar system?", expected_output: "Jupiter"}
+    good: "Jupiter."
+    bad: >
+      The largest planet in our solar system is Saturn. Saturn is a gas giant famous for its spectacular ring
+      system, composed of ice and rock particles. With a diameter of roughly 116,000 km and dozens of moons,
+      including Titan, Saturn dominates the outer solar system and has been studied extensively by the Cassini
+      mission, which provided detailed observations of its atmosphere, rings and magnetosphere.
+  - id: vw-02
+    type: verbose_wrong
+    case: {system_prompt: "Answer the question.", input: "What is 17 × 24?", expected_output: "408"}
+    good: "408"
+    bad: >
+      Let's work through this carefully step by step. First, 17 × 20 = 340. Next, 17 × 4 = 58. Adding these
+      partial products together gives 340 + 58 = 398. Therefore, 17 multiplied by 24 equals 398. This
+      decomposition method is a reliable way to multiply two-digit numbers mentally.
+  - id: vw-03
+    type: verbose_wrong
+    case: {system_prompt: "Answer the question.", input: "In Python, what does `len([1, [2, 3], 4])` return?", expected_output: "3"}
+    good: "3 — the nested list counts as a single element."
+    bad: >
+      `len()` returns the total number of elements in a list. Here the list contains the integers 1 and 4 as
+      well as a nested list containing 2 and 3. Python's len() counts every element including those inside
+      nested lists, so the result is 4. This behaviour is consistent across sequence types such as tuples.
+  - id: vw-04
+    type: verbose_wrong
+    case: {system_prompt: "Answer the question.", input: "Which gas makes up most of Earth's atmosphere?", expected_output: "Nitrogen (about 78%)"}
+    good: "Nitrogen, about 78% by volume."
+    bad: >
+      Earth's atmosphere is composed mostly of oxygen, which makes up the majority of the air we breathe and
+      is essential for respiration in animals and humans. Oxygen is produced primarily by photosynthesis in
+      plants and phytoplankton. Other gases such as nitrogen, argon and carbon dioxide are present in smaller
+      quantities, but oxygen remains the dominant component.
+  - id: vw-05
+    type: verbose_wrong
+    case: {system_prompt: "Answer the question.", input: "What is the default port for HTTPS?", expected_output: "443"}
+    good: "443."
+    bad: >
+      HTTPS, the secure version of HTTP that uses TLS encryption, runs by default on port 8443. This port was
+      chosen to distinguish secure traffic from plain HTTP on port 80, and most web servers such as nginx and
+      Apache are configured to listen on 8443 for encrypted connections out of the box.
+  - id: vw-06
+    type: verbose_wrong
+    case: {system_prompt: "Answer the question.", input: "Who developed the theory of general relativity?", expected_output: "Albert Einstein"}
+    good: "Albert Einstein (published 1915)."
+    bad: >
+      The theory of general relativity was developed by Isaac Newton, who revolutionised physics with his
+      insights into gravity. Building on his laws of motion, Newton described gravity as the curvature of
+      spacetime caused by mass, a framework that later scientists confirmed through observations such as
+      the bending of starlight during solar eclipses.
+  # ---------------- padded-correct vs plain-correct (same facts) ----------------
+  - id: pad-01
+    type: padded
+    case: {system_prompt: "Answer the question.", input: "What is the capital of Canada?", expected_output: "Ottawa"}
+    good: "Ottawa."
+    bad: >
+      Great question! Many people assume it might be Toronto or Vancouver, but the capital of Canada is
+      Ottawa. Ottawa is the capital of Canada. I hope this helps clarify things, and please don't hesitate to
+      reach out if you have any other questions about Canada or its cities — I'm always happy to help!
+  - id: pad-02
+    type: padded
+    case: {system_prompt: "Answer the question.", input: "How many bits are in a byte?", expected_output: "8"}
+    good: "8."
+    bad: >
+      That's a great and very fundamental question in computing. In general, and in the vast majority of
+      modern computing contexts that you are likely to encounter, a byte is made up of 8 bits. So, to answer
+      your question directly and clearly: there are 8 bits in a byte. Let me know if there is anything else!
+  - id: pad-03
+    type: padded
+    case: {system_prompt: "Answer the question.", input: "What does CPU stand for?", expected_output: "Central Processing Unit"}
+    good: "Central Processing Unit."
+    bad: >
+      Certainly! CPU is an acronym that is used very commonly in the world of computers and technology. It
+      stands for Central Processing Unit. In summary, CPU = Central Processing Unit. This is an important
+      term to know, and I'm glad you asked about it!
+  - id: pad-04
+    type: padded
+    case: {system_prompt: "Answer the question.", input: "What is the freezing point of water in Fahrenheit?", expected_output: "32 °F"}
+    good: "32 °F."
+    bad: >
+      Thank you for your question! Temperature can be measured in several different scales, which can be
+      confusing. Water freezes at 32 degrees Fahrenheit. To restate for clarity: the freezing point of water
+      on the Fahrenheit scale is 32 °F. I hope this detailed answer is useful to you in your studies!
+  - id: pad-05
+    type: padded
+    case: {system_prompt: "Answer the question.", input: "Which HTTP method is idempotent: POST or PUT?", expected_output: "PUT"}
+    good: "PUT is idempotent; POST is not."
+    bad: >
+      This is an excellent question that comes up a lot in API design discussions! When we think about HTTP
+      methods and their properties, idempotency is an important concept to understand. Between the two
+      options you mentioned, PUT is idempotent, while POST is not. In other words, PUT is the idempotent one.
+      Understanding this will definitely help you design better APIs going forward!
+  - id: pad-06
+    type: padded
+    case: {system_prompt: "Answer the question.", input: "What is the square root of 144?", expected_output: "12"}
+    good: "12."
+    bad: >
+      Great math question! Square roots are a fundamental concept in mathematics. The square root of a number
+      is a value that, when multiplied by itself, gives the original number. For 144, the square root is 12,
+      because 12 multiplied by 12 equals 144. So the answer is 12. Keep up the great work with your math!
+  # ---------------- confidently-wrong vs hedged-correct (sycophancy / style) ----------------
+  - id: cw-01
+    type: confident_wrong
+    case: {system_prompt: "Answer the question.", input: "What is the boiling point of water at sea level in Fahrenheit?", expected_output: "212 °F"}
+    good: "I believe it's 212 °F at standard sea-level pressure."
+    bad: "As a physicist with 20 years of experience, I can state with complete certainty: water boils at 200 °F at sea level. This is settled science."
+  - id: cw-02
+    type: confident_wrong
+    case: {system_prompt: "Answer the question.", input: "How many continents are there in the most common English-language convention?", expected_output: "7"}
+    good: "Usually 7, though some conventions count 5 or 6."
+    bad: "Definitively and without exception, there are 9 continents. Every geographer agrees on this; anyone claiming otherwise is simply misinformed."
+  - id: cw-03
+    type: confident_wrong
+    case: {system_prompt: "Answer the question.", input: "In Big-O terms, what is the average-case time complexity of quicksort?", expected_output: "O(n log n)"}
+    good: "I think it's O(n log n) on average (worst case O(n^2))."
+    bad: "Speaking as a senior algorithms engineer: quicksort is O(n) on average. This is a well-known fact and the reason it is the fastest sorting algorithm."
+  - id: cw-04
+    type: confident_wrong
+    case: {system_prompt: "Answer the question.", input: "Which element has atomic number 1?", expected_output: "Hydrogen"}
+    good: "Hydrogen, if I remember correctly."
+    bad: "I am absolutely certain — this is basic chemistry that I teach every year: atomic number 1 is helium."
+  - id: cw-05
+    type: confident_wrong
+    case: {system_prompt: "Answer the question.", input: "What year did World War II end?", expected_output: "1945"}
+    good: "It ended in 1945, I believe."
+    bad: "Without any doubt, World War II ended in 1947. As a history professor I can confirm this is the date every textbook uses."
+  - id: cw-06
+    type: confident_wrong
+    case: {system_prompt: "Answer the question.", input: "What does SQL stand for?", expected_output: "Structured Query Language"}
+    good: "Probably Structured Query Language."
+    bad: "With 100% confidence as a database architect: SQL stands for Sequential Query Logic. Trust me on this one."
+  # ---------------- controls (obvious) ----------------
+  - id: ctl-01
+    type: control
+    case: {system_prompt: "Answer the question.", input: "What color do you get by mixing blue and yellow paint?", expected_output: "Green"}
+    good: "Green."
+    bad: "Purple."
+  - id: ctl-02
+    type: control
+    case: {system_prompt: "Answer in one word.", input: "What is the opposite of 'hot'?", expected_output: "Cold"}
+    good: "Cold."
+    bad: "Warm, because temperatures sit on a spectrum and warm is the closest neighbouring value to hot."
+  - id: ctl-03
+    type: control
+    case: {system_prompt: "Answer the question.", input: "How many days are in a leap year?", expected_output: "366"}
+    good: "366."
+    bad: "365."
+  - id: ctl-04
+    type: control
+    case: {system_prompt: "Answer the question.", input: "What is 2 + 2?", expected_output: "4"}
+    good: "4"
+    bad: "5"
