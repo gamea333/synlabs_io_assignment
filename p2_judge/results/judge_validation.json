@@ -1,0 +1,79 @@
+{
+  "gold_agreement_probes": {
+    "n_pairs": 22,
+    "labels": "known by construction (good side alternates A/B)",
+    "v0_single_order": {
+      "accuracy": 0.8182,
+      "kappa": 0.6364
+    },
+    "v1_single_order": {
+      "accuracy": 1.0,
+      "kappa": 1.0
+    },
+    "v1_debiased": {
+      "accuracy": 1.0,
+      "kappa": 1.0
+    }
+  },
+  "adversarial": {
+    "verbose_wrong": {
+      "v0_fooled_single": 0.0,
+      "v1_fooled_debiased": 0.0,
+      "v1_correct_debiased": 1.0
+    },
+    "padded": {
+      "v0_fooled_single": 0.6667,
+      "v1_fooled_debiased": 0.0,
+      "v1_correct_debiased": 1.0
+    },
+    "confident_wrong": {
+      "v0_fooled_single": 0.0,
+      "v1_fooled_debiased": 0.0,
+      "v1_correct_debiased": 1.0
+    },
+    "control": {
+      "v0_fooled_single": 0.0,
+      "v1_fooled_debiased": 0.0,
+      "v1_correct_debiased": 1.0
+    }
+  },
+  "pointwise_probes": {
+    "v0": {
+      "padded": {
+        "n": 6,
+        "fooled_rate": 0.8333,
+        "bad_correctness_ge3_rate": 1.0,
+        "mean_margin_good_minus_bad": 0.028
+      },
+      "confident_wrong": {
+        "n": 6,
+        "fooled_rate": 0.0,
+        "bad_correctness_ge3_rate": 0.0,
+        "mean_margin_good_minus_bad": 2.945
+      }
+    },
+    "v1": {
+      "padded": {
+        "n": 6,
+        "fooled_rate": 0.1667,
+        "bad_correctness_ge3_rate": 1.0,
+        "mean_margin_good_minus_bad": 0.067
+      },
+      "confident_wrong": {
+        "n": 6,
+        "fooled_rate": 0.0,
+        "bad_correctness_ge3_rate": 0.0,
+        "mean_margin_good_minus_bad": 1.8
+      }
+    }
+  },
+  "test_retest": {
+    "temperature": 0.0,
+    "pairwise_final_flip_rate": 0.0,
+    "pairwise_single_order_flip_rate": 0.0,
+    "pointwise_pass_flip_rate": 0.0,
+    "pointwise_mean_abs_weighted_diff": 0.008,
+    "n_pairwise": 22,
+    "n_pointwise": 12
+  }
+}

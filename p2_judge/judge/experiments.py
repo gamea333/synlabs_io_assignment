@@ -284,13 +284,62 @@ def run_suite_v0() -> None:
     _save("suite_pointwise_v0.json", rows)
 
 
+def _short(text: str, n: int = 150) -> str:
+    text = " ".join((text or "").split())
+    return text if len(text) <= n else text[:n] + "..."
+
+
+def _print_pair(r: dict, label: str, a_text: str, b_text: str, gold: str | None = None) -> None:
+    print(f"--- {label} ---")
+    print(f"  config A: {_short(a_text)}")
+    print(f"  config B: {_short(b_text)}")
+    print(f"  order 1 (shown A first, B second) -> winner {r['verdict_AB']}: {_short(r['order_AB']['verdict']['rationale'], 230)}")
+    print(f"  order 2 (shown B first, A second) -> judge said {r['order_BA']['winner_shown']} "
+          f"= config {r['verdict_BA']}: {_short(r['order_BA']['verdict']['rationale'], 230)}")
+    print(f"  consistent across orders: {r['consistent']}   flipped: {r['flipped']}   FINAL (debiased): {r['final']}"
+          + (f"   GOLD: {gold}" + ("  -> CORRECT" if r['final'] == gold else "  -> WRONG") if gold else ""))
+
+
+def show(kind: str, item: str) -> None:
+    """Screenshot-friendly view of one pair judged in both orders, plus the aggregate rates."""
+    probes = {p["id"]: p for p in load_probes()}
+    if kind == "probe":
+        raw, p = _load("probes_raw.json"), probes[item]
+        print(f"PROBE {item}  type={p['type']}  question: {p['case']['input']}  reference: {p['case']['expected_output']}")
+        print(f"good answer is config {p['good_side']}; bad = {'padded/verbose/confident' if p['type'] != 'control' else 'wrong'}\n")
+        for v in ("v0", "v1"):
+            r = next(x for x in raw["pairwise"][v] if x["case_id"] == item)
+            _print_pair(r, f"judge {v} ({'naive' if v == 'v0' else 'hardened'})", p["A"], p["B"], p["good_side"])
+            print()
+        val = _load("judge_validation.json")["adversarial"][p["type"]]
+        print(f"ALL {p['type']} probes: v0 fooled (single-order) {val['v0_fooled_single']:.0%}  ->  "
+              f"v1 fooled (debiased) {val['v1_fooled_debiased']:.0%}, v1 correct {val['v1_correct_debiased']:.0%}")
+    elif kind == "ab":
+        ab = _load("ab_report.json")
+        r = next(x for x in ab["pairs"] if x["case_id"] == item)
+        case = next(c for c in load_suite("suites/main.yaml")["cases"] if c["id"] == item)
+        print(f"A/B CASE {item}: {case['input']}   (A = prompt_v1, B = prompt_v2, judge v1)\n")
+        _print_pair(r, "same pair, both orders", ab["outputs_A"][item], ab["outputs_B"][item])
+        pos = _load("bias_report.json")["position"]
+        print(f"\nPOSITION BIAS - real A/B suite (24 pairs, v1 judge): single-order flip rate "
+              f"{ab['pairwise']['position_flip_rate']:.1%}, first-position win rate {ab['pairwise']['first_position_win_rate']:.1%}")
+        print(f"POSITION BIAS - probes (22 pairs): naive v0 flip rate {pos['before_v0_single_order']['position_flip_rate']:.1%} "
+              f"-> hardened v1 {pos['v1_prompt_single_order']['position_flip_rate']:.1%}; "
+              f"after both-order debiasing the effective flip rate is 0% (flips become ties)")
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s", datefmt="%H:%M:%S")
     for noisy in ("httpx", "httpx2", "httpcore", "openai"):
         logging.getLogger(noisy).setLevel(logging.WARNING)
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=["probes", "retest", "self", "suite_v0", "report", "all"])
+    ap.add_argument("what", choices=["probes", "retest", "self", "suite_v0", "report", "all", "show"])
+    ap.add_argument("kind", nargs="?", choices=["probe", "ab"], help="for 'show'")
+    ap.add_argument("item", nargs="?", help="probe id or suite case id, for 'show'")
     a = ap.parse_args()
+    if a.what == "show":
+        show(a.kind, a.item)
+        return
     t = time.time()
     steps = {"probes": run_probes, "retest": run_retest, "self": run_self_enhancement,
              "suite_v0": run_suite_v0, "report": build_report}

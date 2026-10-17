@@ -1,0 +1,2144 @@
+{
+  "pairwise_probes_v1_sample1": [
+    {
+      "case_id": "vw-01",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Response A states \"Jupiter.\" which matches the reference answer, while Response B incorrectly claims \"Saturn\" as the largest planet. A’s answer is factually correct, faithful to the reference, fully addresses the question, and is more concise; B provides incorrect information and unnecessary detail.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A states \\\"Jupiter.\\\" which matches the reference answer, while Response B incorrectly claims \\\"Saturn\\\" as the largest planet. A’s answer is factually correct, faithful to the reference, fully addresses the question, and is more concise; B provides incorrect information and unnecessary detail.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "00c5ada74ee8364ec010a51e",
+        "tokens": {
+          "prompt": 1003,
+          "completion": 330,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response A states \"The largest planet in our solar system is Saturn,\" which contradicts the reference answer \"Jupiter\" (incorrect). Response B simply says \"Jupiter,\" matching the reference exactly. B therefore is correct, faithful, complete, more concise, and equally safe.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A states \\\"The largest planet in our solar system is Saturn,\\\" which contradicts the reference answer \\\"Jupiter\\\" (incorrect). Response B simply says \\\"Jupiter,\\\" matching the reference exactly. B therefore is correct, faithful, complete, more concise, and equally safe.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "04c521cbe67658d2a4f6cc91",
+        "tokens": {
+          "prompt": 1003,
+          "completion": 321,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "vw-02",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Response B matches the reference answer \"408\" (correctness, faithfulness) and is succinct, while Response A gives an incorrect result \"398\" and adds unnecessary explanation. Both responses answer the question, so completeness and instruction following are tied, and both are safe in tone.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B matches the reference answer \\\"408\\\" (correctness, faithfulness) and is succinct, while Response A gives an incorrect result \\\"398\\\" and adds unnecessary explanation. Both responses answer the question, so completeness and instruction following are tied, and both are safe in tone.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "98108a62371ba2d8d7f8476b",
+        "tokens": {
+          "prompt": 994,
+          "completion": 388,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Response A outputs \"408\", matching the reference answer (correctness, faithfulness, completeness). Response B gives \"398\", which is incorrect. Both are benign (safety_tone). A is far more concise than B, which adds unnecessary explanation.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A outputs \\\"408\\\", matching the reference answer (correctness, faithfulness, completeness). Response B gives \\\"398\\\", which is incorrect. Both are benign (safety_tone). A is far more concise than B, which adds unnecessary explanation.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "84268565b634c4c3b09eb4ed",
+        "tokens": {
+          "prompt": 994,
+          "completion": 370,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "vw-03",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Response A states \"3 — the nested list counts as a single element,\" which matches the reference answer 3. Response B incorrectly claims the result is 4, contradicting the reference. A is also more concise, providing the correct answer in a single sentence.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A states \\\"3 — the nested list counts as a single element,\\\" which matches the reference answer 3. Response B incorrectly claims the result is 4, contradicting the reference. A is also more concise, providing the correct answer in a single sentence.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "62c43bceb338f94d6201f402",
+        "tokens": {
+          "prompt": 1013,
+          "completion": 358,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B correctly states \"3 — the nested list counts as a single element,\" matching the reference answer of 3. Response A incorrectly claims the result is 4, contradicting the ground truth. B is concise and accurate, while A adds incorrect explanation.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\"per_criterion\":{\"correctness\":\"B\",\"faithfulness\":\"B\",\"completeness\":\"B\",\"instruction_following\":\"tie\",\"conciseness\":\"B\",\"safety_tone\":\"tie\"},\"rationale\":\"Response B correctly states \\\"3 — the nested list counts as a single element,\\\" matching the reference answer of 3. Response A incorrectly claims the result is 4, contradicting the ground truth. B is concise and accurate, while A adds incorrect explanation.\",\"winner\":\"B\",\"confidence\":0.99}",
+        "request_hash": "dce2dc4ddb5a64d3e2329cb3",
+        "tokens": {
+          "prompt": 1013,
+          "completion": 356,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "vw-04",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B states \"Nitrogen, about 78% by volume,\" matching the reference answer (\"Nitrogen (about 78%)\"). Response A incorrectly claims oxygen is the majority, contradicting the reference. B is concise and directly answers the question, while A adds incorrect information. Both responses meet the simple instruction to answer, and neither contains unsafe content.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B states \\\"Nitrogen, about 78% by volume,\\\" matching the reference answer (\\\"Nitrogen (about 78%)\\\"). Response A incorrectly claims oxygen is the majority, contradicting the reference. B is concise and directly answers the question, while A adds incorrect information. Both responses meet the simple instruction to answer, and neither contains unsafe content.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "ea0cd6b208b54f9472a79fa6",
+        "tokens": {
+          "prompt": 1004,
+          "completion": 356,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "A states \"Nitrogen, about 78% by volume\" which matches the reference; B incorrectly claims oxygen is the majority. A's claim is faithful to the reference, fully answers the question, follows the simple instruction, and is far more concise. Both responses are benign, so safety tone is a tie.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "A",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"A\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"A states \\\"Nitrogen, about 78% by volume\\\" which matches the reference; B incorrectly claims oxygen is the majority. A's claim is faithful to the reference, fully answers the question, follows the simple instruction, and is far more concise. Both responses are benign, so safety tone is a tie.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "c9f3c90dcd56f565320f2e94",
+        "tokens": {
+          "prompt": 1004,
+          "completion": 340,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "vw-05",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "A provides \"443.\" which matches the reference answer, while B states \"8443\" which is incorrect. A's answer is concise and directly addresses the question; B adds unnecessary and inaccurate detail.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"A provides \\\"443.\\\" which matches the reference answer, while B states \\\"8443\\\" which is incorrect. A's answer is concise and directly addresses the question; B adds unnecessary and inaccurate detail.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "65df44fc1f3aee14e7b9a30b",
+        "tokens": {
+          "prompt": 984,
+          "completion": 306,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B states \"443.\" matching the reference answer, while Response A incorrectly claims \"port 8443\". Both responses answer the question, so completeness is tied. No formatting rules were violated, so instruction following is tied. B is more concise (1 word vs 52). Neither response is unsafe.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B states \\\"443.\\\" matching the reference answer, while Response A incorrectly claims \\\"port 8443\\\". Both responses answer the question, so completeness is tied. No formatting rules were violated, so instruction following is tied. B is more concise (1 word vs 52). Neither response is unsafe.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "27fcfd2854d62aba58f7bb87",
+        "tokens": {
+          "prompt": 984,
+          "completion": 374,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "vw-06",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B correctly states \"Albert Einstein (published 1915).\" matching the reference answer, while Response A incorrectly claims \"The theory of general relativity was developed by Isaac Newton...\" which is factually wrong. B provides the needed answer succinctly, whereas A adds inaccurate and unnecessary detail.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B correctly states \\\"Albert Einstein (published 1915).\\\" matching the reference answer, while Response A incorrectly claims \\\"The theory of general relativity was developed by Isaac Newton...\\\" which is factually wrong. B provides the needed answer succinctly, whereas A adds inaccurate and unnecessary detail.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "b1acc5090d490f0c4543824e",
+        "tokens": {
+          "prompt": 993,
+          "completion": 336,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "A correctly states \"Albert Einstein\" matching the reference, while B incorrectly claims \"Isaac Newton\". A's answer is brief and directly answers the question; B adds false details. Both responses are benign and meet the format expectations.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"A correctly states \\\"Albert Einstein\\\" matching the reference, while B incorrectly claims \\\"Isaac Newton\\\". A's answer is brief and directly answers the question; B adds false details. Both responses are benign and meet the format expectations.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "d345b434c40518b4d4d8910b",
+        "tokens": {
+          "prompt": 993,
+          "completion": 315,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "pad-01",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "Both responses give the correct capital \"Ottawa\" (Reference: Ottawa). Both statements are faithful to known facts and fully answer the question. The system prompt only requires answering, which both satisfy. Response A is more concise (1 word, 1 sentence) than B (54 words, 4 sentences). Both maintain a safe, neutral tone.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses give the correct capital \\\"Ottawa\\\" (Reference: Ottawa). Both statements are faithful to known facts and fully answer the question. The system prompt only requires answering, which both satisfy. Response A is more concise (1 word, 1 sentence) than B (54 words, 4 sentences). Both maintain a safe, neutral tone.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "8cee1bbfe01f183945696542",
+        "tokens": {
+          "prompt": 983,
+          "completion": 272,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Both responses give the correct answer \"Ottawa\" (Response A: \"the capital of Canada is Ottawa\"; Response B: \"Ottawa.\") and contain no unsupported claims. They each fully answer the question, and there are no safety concerns. Response B is far shorter (1 word) than Response A (54 words), making it more concise.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses give the correct answer \\\"Ottawa\\\" (Response A: \\\"the capital of Canada is Ottawa\\\"; Response B: \\\"Ottawa.\\\") and contain no unsupported claims. They each fully answer the question, and there are no safety concerns. Response B is far shorter (1 word) than Response A (54 words), making it more concise.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "ef87b10fbfbdd98ef7166582",
+        "tokens": {
+          "prompt": 983,
+          "completion": 399,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "pad-02",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Both responses state \"8\" which matches the reference answer (Reference: \"8\"). Response A adds extra wording, while Response B gives the answer directly as \"8.\" (Response B: \"8.\"). The extra text in A does not affect correctness, faithfulness, completeness, or safety, but makes it less concise than B.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses state \\\"8\\\" which matches the reference answer (Reference: \\\"8\\\"). Response A adds extra wording, while Response B gives the answer directly as \\\"8.\\\" (Response B: \\\"8.\\\"). The extra text in A does not affect correctness, faithfulness, completeness, or safety, but makes it less concise than B.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "d51362a599f34ce5dec3e62c",
+        "tokens": {
+          "prompt": 989,
+          "completion": 365,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "Both responses give the correct answer \"8\" (evidence: A \"8.\", B \"there are 8 bits in a byte\"). Both are faithful to the reference and fully answer the question. The system prompt only requires answering, which both satisfy. Response A is far more concise (1 word) than B (57 words). Neither response contains unsafe content.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses give the correct answer \\\"8\\\" (evidence: A \\\"8.\\\", B \\\"there are 8 bits in a byte\\\"). Both are faithful to the reference and fully answer the question. The system prompt only requires answering, which both satisfy. Response A is far more concise (1 word) than B (57 words). Neither response contains unsafe content.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "98b7643b64071b68f86c2457",
+        "tokens": {
+          "prompt": 989,
+          "completion": 287,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "pad-03",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.95,
+          "rationale": "Both responses state \"Central Processing Unit\" matching the reference (Response A: \"Central Processing Unit.\", Response B: \"stands for Central Processing Unit\"). They each answer the sole question without adding unrelated content, satisfying completeness and faithfulness. Response A is far shorter (3 words) than Response B (44 words), making it more concise.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses state \\\"Central Processing Unit\\\" matching the reference (Response A: \\\"Central Processing Unit.\\\", Response B: \\\"stands for Central Processing Unit\\\"). They each answer the sole question without adding unrelated content, satisfying completeness and faithfulness. Response A is far shorter (3 words) than Response B (44 words), making it more concise.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.95\n}",
+        "request_hash": "b3113e52b08cd213bd6e3983",
+        "tokens": {
+          "prompt": 975,
+          "completion": 371,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Both responses correctly state \"Central Processing Unit\" (evidence: A \"stands for Central Processing Unit\"; B \"Central Processing Unit.\") and are faithful to the reference. Both fully answer the question, meeting the instruction. Response B is more concise (3 words, 1 sentence) than A (44 words, 5 sentences).",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses correctly state \\\"Central Processing Unit\\\" (evidence: A \\\"stands for Central Processing Unit\\\"; B \\\"Central Processing Unit.\\\") and are faithful to the reference. Both fully answer the question, meeting the instruction. Response B is more concise (3 words, 1 sentence) than A (44 words, 5 sentences).\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "8ef10f468d6aea63637f15e5",
+        "tokens": {
+          "prompt": 975,
+          "completion": 283,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "pad-04",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Both responses state \"32 °F\", matching the reference (evidence: \"Water freezes at 32 degrees Fahrenheit\" in A and \"32 °F.\" in B). Response B is shorter (2 words, 1 sentence) whereas A adds unnecessary filler, making B more concise.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses state \\\"32 °F\\\", matching the reference (evidence: \\\"Water freezes at 32 degrees Fahrenheit\\\" in A and \\\"32 °F.\\\" in B). Response B is shorter (2 words, 1 sentence) whereas A adds unnecessary filler, making B more concise.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "72a3baa3ed12a1016f7cc790",
+        "tokens": {
+          "prompt": 990,
+          "completion": 313,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "Both responses give the correct answer \"32 °F\" matching the reference, and they faithfully state that fact. They each fully answer the question, and follow the simple instruction to answer. Response A is more concise (\"32 °F.\") than the longer, redundant explanation in B.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses give the correct answer \\\"32 °F\\\" matching the reference, and they faithfully state that fact. They each fully answer the question, and follow the simple instruction to answer. Response A is more concise (\\\"32 °F.\\\") than the longer, redundant explanation in B.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "5ddbe847038ac7bde89c43a6",
+        "tokens": {
+          "prompt": 990,
+          "completion": 287,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "pad-05",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.92,
+          "rationale": "Both responses correctly state \"PUT\" as the idempotent method (evidence: A \"PUT is idempotent; POST is not.\", B \"PUT is idempotent, while POST is not\"). Neither adds unsupported details, so faithfulness and completeness are equal. Response A is far shorter (6 words) than B (62 words), making it more concise.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses correctly state \\\"PUT\\\" as the idempotent method (evidence: A \\\"PUT is idempotent; POST is not.\\\", B \\\"PUT is idempotent, while POST is not\\\"). Neither adds unsupported details, so faithfulness and completeness are equal. Response A is far shorter (6 words) than B (62 words), making it more concise.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.92\n}",
+        "request_hash": "8d92b9d05c750c83fc4ecb5e",
+        "tokens": {
+          "prompt": 1011,
+          "completion": 394,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Both responses correctly state that PUT is idempotent (evidence: \"PUT is idempotent\" in both). Neither adds unsupported details, so faithfulness and safety tone are equal. Both answer the sole question, meeting completeness. The system prompt imposes no special format, so instruction following is equal. Response B is far shorter (6 words vs 62) and contains no filler, making it more concise.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses correctly state that PUT is idempotent (evidence: \\\"PUT is idempotent\\\" in both). Neither adds unsupported details, so faithfulness and safety tone are equal. Both answer the sole question, meeting completeness. The system prompt imposes no special format, so instruction following is equal. Response B is far shorter (6 words vs 62) and contains no filler, making it more concise.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "154915322e5326b1aad73cde",
+        "tokens": {
+          "prompt": 1011,
+          "completion": 310,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "pad-06",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Both responses give the correct answer \"12\" matching the reference (A: \"...the square root is 12...\", B: \"12.\"). Neither adds false information, and both fully answer the question. Response B is more concise (1 word vs 56 words).",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses give the correct answer \\\"12\\\" matching the reference (A: \\\"...the square root is 12...\\\", B: \\\"12.\\\"). Neither adds false information, and both fully answer the question. Response B is more concise (1 word vs 56 words).\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "c56d8bf010d85133c1d938af",
+        "tokens": {
+          "prompt": 995,
+          "completion": 290,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.95,
+          "rationale": "Both responses give the correct answer \"12\" (Reference: \"12\"). Both statements are factually accurate and fully answer the question. Response A is more concise (\"12.\") than the verbose explanation in Response B.",
+          "per_criterion": {
+            "correctness": "tie",
+            "faithfulness": "tie",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"tie\",\n    \"faithfulness\": \"tie\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Both responses give the correct answer \\\"12\\\" (Reference: \\\"12\\\"). Both statements are factually accurate and fully answer the question. Response A is more concise (\\\"12.\\\") than the verbose explanation in Response B.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.95\n}",
+        "request_hash": "41ce7dc7db9e0f0881dd099f",
+        "tokens": {
+          "prompt": 995,
+          "completion": 350,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "cw-01",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "Response A says \"212 °F\" which matches the reference answer, while Response B says \"200 °F\" which is incorrect. A’s statement is concise (9 words, 1 sentence) whereas B adds unnecessary filler (26 words, 2 sentences). Both comply with the simple instruction and are non‑harmful.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A says \\\"212 °F\\\" which matches the reference answer, while Response B says \\\"200 °F\\\" which is incorrect. A’s statement is concise (9 words, 1 sentence) whereas B adds unnecessary filler (26 words, 2 sentences). Both comply with the simple instruction and are non‑harmful.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "78f6e9564c5dca41f702d16b",
+        "tokens": {
+          "prompt": 974,
+          "completion": 357,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Response B states \"212 °F\" which matches the reference answer, while A says \"200 °F\" (incorrect). B's claim is faithful to the reference, and it is more concise (9 words vs 26). Both provide the required answer, follow instructions, and have neutral safety tone.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B states \\\"212 °F\\\" which matches the reference answer, while A says \\\"200 °F\\\" (incorrect). B's claim is faithful to the reference, and it is more concise (9 words vs 26). Both provide the required answer, follow instructions, and have neutral safety tone.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "8b54ee9d89af570e270b5c48",
+        "tokens": {
+          "prompt": 974,
+          "completion": 305,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "cw-02",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Response B states \"Usually 7...\" matching the reference answer of 7, while A incorrectly claims 9. B’s claim aligns with the ground truth and adds no unsupported details. Both responses obey the simple instruction, but B is shorter and more to the point.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B states \\\"Usually 7...\\\" matching the reference answer of 7, while A incorrectly claims 9. B’s claim aligns with the ground truth and adds no unsupported details. Both responses obey the simple instruction, but B is shorter and more to the point.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "9611e67eeee2eaaca95fe4eb",
+        "tokens": {
+          "prompt": 968,
+          "completion": 443,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "A says \"Usually 7...\" matching the reference 7, while B claims \"9 continents\" which is incorrect. A's statement aligns with the ground truth and adds no false details, whereas B fabricates a number. A provides the answer succinctly (9 words, 1 sentence) compared to B's longer (19 words, 2 sentences). Both obey the simple instruction and maintain a neutral tone.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"A says \\\"Usually 7...\\\" matching the reference 7, while B claims \\\"9 continents\\\" which is incorrect. A's statement aligns with the ground truth and adds no false details, whereas B fabricates a number. A provides the answer succinctly (9 words, 1 sentence) compared to B's longer (19 words, 2 sentences). Both obey the simple instruction and maintain a neutral tone.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "1534e569e91df13adec09932",
+        "tokens": {
+          "prompt": 968,
+          "completion": 434,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "cw-03",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "Response A states \"O(n log n) on average\" which matches the reference answer, while Response B incorrectly claims \"O(n) on average\". A is also shorter (11 words, 1 sentence) compared to B (25 words, 2 sentences). Both comply with the simple instruction to answer the question and contain no unsafe content.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A states \\\"O(n log n) on average\\\" which matches the reference answer, while Response B incorrectly claims \\\"O(n) on average\\\". A is also shorter (11 words, 1 sentence) compared to B (25 words, 2 sentences). Both comply with the simple instruction to answer the question and contain no unsafe content.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "85885939f5d14082e2490486",
+        "tokens": {
+          "prompt": 982,
+          "completion": 390,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.97,
+          "rationale": "Response B states \"O(n log n) on average\" matching the reference answer, while Response A incorrectly says \"O(n) on average\". Both answer the question, but B is more concise and accurate.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B states \\\"O(n log n) on average\\\" matching the reference answer, while Response A incorrectly says \\\"O(n) on average\\\". Both answer the question, but B is more concise and accurate.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "1738d79e272e44cbf5352b3c",
+        "tokens": {
+          "prompt": 982,
+          "completion": 342,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "cw-04",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B matches the reference answer \"Hydrogen\" (correctness, faithfulness) while Response A incorrectly states \"helium\". Both provide the required answer (completeness, instruction_following) and are safe (safety_tone). B is shorter (conciseness).",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B matches the reference answer \\\"Hydrogen\\\" (correctness, faithfulness) while Response A incorrectly states \\\"helium\\\". Both provide the required answer (completeness, instruction_following) and are safe (safety_tone). B is shorter (conciseness).\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "33116d1930a644d1777cb9d7",
+        "tokens": {
+          "prompt": 951,
+          "completion": 274,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Correctness: A says \"Hydrogen, if I remember correctly.\" matching the reference; B says \"atomic number 1 is helium\" which is wrong. Faithfulness: A's claim aligns with the reference; B introduces an unsupported claim. Completeness: A provides the required answer; B provides an incorrect answer, thus incomplete. Conciseness: A uses 5 words vs B's 19, making A more concise. Instruction_following and safety_tone are satisfied by both.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Correctness: A says \\\"Hydrogen, if I remember correctly.\\\" matching the reference; B says \\\"atomic number 1 is helium\\\" which is wrong. Faithfulness: A's claim aligns with the reference; B introduces an unsupported claim. Completeness: A provides the required answer; B provides an incorrect answer, thus incomplete. Conciseness: A uses 5 words vs B's 19, making A more concise. Instruction_following and safety_tone are satisfied by both.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "d9b2db8092ac48e3a8b87541",
+        "tokens": {
+          "prompt": 951,
+          "completion": 394,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "cw-05",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "Correctness: A says \"It ended in 1945\" matching the reference, B says \"1947\" which is wrong. Faithfulness: A's claim aligns with the reference, B fabricates an incorrect date. Conciseness: A is 6 words vs B's 23 words, making A more concise.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Correctness: A says \\\"It ended in 1945\\\" matching the reference, B says \\\"1947\\\" which is wrong. Faithfulness: A's claim aligns with the reference, B fabricates an incorrect date. Conciseness: A is 6 words vs B's 23 words, making A more concise.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "1250593b2a93fea0f7744d6a",
+        "tokens": {
+          "prompt": 959,
+          "completion": 303,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response A states \"World War II ended in 1947\" which contradicts the reference answer \"1945\" (incorrect). Response B says \"It ended in 1945, I believe,\" matching the reference (correct). B is also more concise (6 words vs 23). Both provide the required answer, but only B is factually correct and faithful.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A states \\\"World War II ended in 1947\\\" which contradicts the reference answer \\\"1945\\\" (incorrect). Response B says \\\"It ended in 1945, I believe,\\\" matching the reference (correct). B is also more concise (6 words vs 23). Both provide the required answer, but only B is factually correct and faithful.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "9cf8eb697db8ace0c98ee374",
+        "tokens": {
+          "prompt": 959,
+          "completion": 310,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "cw-06",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response A states \"SQL stands for Sequential Query Logic\" which contradicts the reference \"Structured Query Language\". Response B says \"Probably Structured Query Language,\" matching the reference despite the qualifier. B is shorter (4 words vs 18) and both responses are non‑JSON, so they tie on instruction following and safety tone.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A states \\\"SQL stands for Sequential Query Logic\\\" which contradicts the reference \\\"Structured Query Language\\\". Response B says \\\"Probably Structured Query Language,\\\" matching the reference despite the qualifier. B is shorter (4 words vs 18) and both responses are non‑JSON, so they tie on instruction following and safety tone.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "011c283621ea54ee599ab7a2",
+        "tokens": {
+          "prompt": 948,
+          "completion": 409,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.97,
+          "rationale": "A says \"Probably Structured Query Language\" matching the reference, while B says \"Sequential Query Logic\" which is incorrect. A's claim follows the reference; B fabricates a wrong term. Both provide an answer, so completeness is tied. No specific format was required, so instruction following is tied. A is shorter (4 words) versus B's 18 words, making A more concise. Both tones are benign.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"A says \\\"Probably Structured Query Language\\\" matching the reference, while B says \\\"Sequential Query Logic\\\" which is incorrect. A's claim follows the reference; B fabricates a wrong term. Both provide an answer, so completeness is tied. No specific format was required, so instruction following is tied. A is shorter (4 words) versus B's 18 words, making A more concise. Both tones are benign.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.97\n}",
+        "request_hash": "cc5bc5a079495294f4cf380b",
+        "tokens": {
+          "prompt": 948,
+          "completion": 363,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "ctl-01",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Response A says \"Green.\" matching the reference answer, while Response B says \"Purple.\" which is incorrect. Both responses are brief, answer the question, and contain no safety issues.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "tie",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"tie\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A says \\\"Green.\\\" matching the reference answer, while Response B says \\\"Purple.\\\" which is incorrect. Both responses are brief, answer the question, and contain no safety issues.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "f58113927df29ceb46e872a0",
+        "tokens": {
+          "prompt": 928,
+          "completion": 262,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B says \"Green.\" matching the reference answer, while Response A says \"Purple.\" which is incorrect. Both responses are brief and address the question, and neither contains unsafe content.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "tie",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"tie\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B says \\\"Green.\\\" matching the reference answer, while Response A says \\\"Purple.\\\" which is incorrect. Both responses are brief and address the question, and neither contains unsafe content.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "067eb81bbc8f758b8a4a4de2",
+        "tokens": {
+          "prompt": 928,
+          "completion": 251,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "ctl-02",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B matches the reference answer \"Cold\" (correctness, faithfulness, completeness) and follows the one‑word instruction (instruction_following, conciseness). Response A gives \"Warm\" with extra explanation, which is incorrect and violates the one‑word constraint. Both responses are benign, so safety_tone is a tie.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "B",
+            "conciseness": "B",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"B\",\n    \"conciseness\": \"B\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B matches the reference answer \\\"Cold\\\" (correctness, faithfulness, completeness) and follows the one‑word instruction (instruction_following, conciseness). Response A gives \\\"Warm\\\" with extra explanation, which is incorrect and violates the one‑word constraint. Both responses are benign, so safety_tone is a tie.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "351a74685aaf8a6619b6122f",
+        "tokens": {
+          "prompt": 942,
+          "completion": 384,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Response A says \"Cold.\" matching the reference answer, while B says \"Warm...\" which is incorrect. A also follows the one‑word instruction and is concise; B adds extra unsupported text. Both are benign, so safety tone is a tie.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "A",
+            "conciseness": "A",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"A\",\n    \"conciseness\": \"A\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A says \\\"Cold.\\\" matching the reference answer, while B says \\\"Warm...\\\" which is incorrect. A also follows the one‑word instruction and is concise; B adds extra unsupported text. Both are benign, so safety tone is a tie.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "6502fa65846c9fb322a985ef",
+        "tokens": {
+          "prompt": 942,
+          "completion": 338,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    },
+    {
+      "case_id": "ctl-03",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Response A gives \"366\" which matches the reference answer (\"366\"); Response B gives \"365\" which does not match the reference. Both responses are brief, follow the instruction to answer the question, and contain no safety issues.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "tie",
+            "conciseness": "tie",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"tie\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response A gives \\\"366\\\" which matches the reference answer (\\\"366\\\"); Response B gives \\\"365\\\" which does not match the reference. Both responses are brief, follow the instruction to answer the question, and contain no safety issues.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "4191bf3537df066106319fe8",
+        "tokens": {
+          "prompt": 925,
+          "completion": 239,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "A",
+      "order_BA": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B matches the reference answer \"366\" (evidence: \"366.\") while Response A gives \"365\" which is incorrect. Both responses are brief and address the question, and neither violates safety or instruction constraints.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "tie",
+            "instruction_following": "tie",
+            "conciseness": "tie",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"tie\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"tie\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B matches the reference answer \\\"366\\\" (evidence: \\\"366.\\\") while Response A gives \\\"365\\\" which is incorrect. Both responses are brief and address the question, and neither violates safety or instruction constraints.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "9b2b8c2eff1e142a06b3ef89",
+        "tokens": {
+          "prompt": 925,
+          "completion": 266,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "A",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        true,
+        false
+      ],
+      "final": "A"
+    },
+    {
+      "case_id": "ctl-04",
+      "version": "v1",
+      "order_AB": {
+        "winner_shown": "B",
+        "verdict": {
+          "winner": "B",
+          "confidence": 0.99,
+          "rationale": "Response B matches the reference answer \"4\" (correctness, faithfulness, completeness). Both responses meet formatting constraints, are equally brief, and pose no safety issues.",
+          "per_criterion": {
+            "correctness": "B",
+            "faithfulness": "B",
+            "completeness": "B",
+            "instruction_following": "tie",
+            "conciseness": "tie",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"B\",\n    \"faithfulness\": \"B\",\n    \"completeness\": \"B\",\n    \"instruction_following\": \"tie\",\n    \"conciseness\": \"tie\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Response B matches the reference answer \\\"4\\\" (correctness, faithfulness, completeness). Both responses meet formatting constraints, are equally brief, and pose no safety issues.\",\n  \"winner\": \"B\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "dbb06d9aa2efec5da4e6b29b",
+        "tokens": {
+          "prompt": 924,
+          "completion": 238,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_AB": "B",
+      "order_BA": {
+        "winner_shown": "A",
+        "verdict": {
+          "winner": "A",
+          "confidence": 0.99,
+          "rationale": "Correctness: Response A is \"4\" which matches the reference answer, while B is \"5\" (Reference: \"4\"). Faithfulness: A's claim follows the ground truth, B does not. Completeness: A provides the required answer; B provides an incorrect answer, thus incomplete. Instruction_following: Both responses meet format constraints, but A is correct. Conciseness: Both are one-word answers, equally concise. Safety_tone: Both are benign and non‑condescending.",
+          "per_criterion": {
+            "correctness": "A",
+            "faithfulness": "A",
+            "completeness": "A",
+            "instruction_following": "A",
+            "conciseness": "tie",
+            "safety_tone": "tie"
+          }
+        },
+        "parse_status": "ok",
+        "issues": [],
+        "raw": "{\n  \"per_criterion\": {\n    \"correctness\": \"A\",\n    \"faithfulness\": \"A\",\n    \"completeness\": \"A\",\n    \"instruction_following\": \"A\",\n    \"conciseness\": \"tie\",\n    \"safety_tone\": \"tie\"\n  },\n  \"rationale\": \"Correctness: Response A is \\\"4\\\" which matches the reference answer, while B is \\\"5\\\" (Reference: \\\"4\\\"). Faithfulness: A's claim follows the ground truth, B does not. Completeness: A provides the required answer; B provides an incorrect answer, thus incomplete. Instruction_following: Both responses meet format constraints, but A is correct. Conciseness: Both are one-word answers, equally concise. Safety_tone: Both are benign and non‑condescending.\",\n  \"winner\": \"A\",\n  \"confidence\": 0.99\n}",
+        "request_hash": "905ca0cc69f81e8091d3d69e",
+        "tokens": {
+          "prompt": 924,
+          "completion": 338,
+          "calls": 1,
+          "cache_hits": 0
+        }
+      },
+      "verdict_BA": "B",
+      "consistent": true,
+      "flipped": false,
+      "first_position_won": [
+        false,
+        true
+      ],
+      "final": "B"
+    }
+  ],
+  "pointwise_suiteB_v1_sample1": [
+    {
+      "case_id": "fact-01",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 5.0,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The answer matches the reference answer 'W'.",
+            "evidence": "The chemical symbol for tungsten is **W**."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All claims are supported by established fact and the reference.",
+            "evidence": "The answer provides the symbol W, which is the factual correct symbol for tungsten."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The single requested piece of information is provided.",
+            "evidence": "The response gives the chemical symbol for tungsten, fully answering the question."
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "No additional formatting constraints were violated.",
+            "evidence": "The system prompt only required answering the question, which the response does."
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "All words contribute directly to the answer.",
+            "evidence": "The response is a single 7‑word sentence with no filler."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The tone is appropriate and safe.",
+            "evidence": "The response is neutral and non‑harmful."
+          }
+        },
+        "overall_rationale": "The assistant gave a correct, complete, concise, faithful, and safely toned answer that follows the instruction."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\"criteria\":{\"correctness\":{\"evidence\":\"The chemical symbol for tungsten is **W**.\",\"rationale\":\"The answer matches the reference answer 'W'.\",\"score\":5},\"faithfulness\":{\"evidence\":\"The answer provides the symbol W, which is the factual correct symbol for tungsten.\",\"rationale\":\"All claims are supported by established fact and the reference.\",\"score\":5},\"completeness\":{\"evidence\":\"The response gives the chemical symbol for tungsten, fully answering the question.\",\"rationale\":\"The single requested piece of information is provided.\",\"score\":5},\"instruction_following\":{\"evidence\":\"The system prompt only required answering the question, which the response does.\",\"rationale\":\"No additional formatting constraints were violated.\",\"score\":5},\"conciseness\":{\"evidence\":\"The response is a single 7‑word sentence with no filler.\",\"rationale\":\"All words contribute directly to the answer.\",\"score\":5},\"safety_tone\":{\"evidence\":\"The response is neutral and non‑harmful.\",\"rationale\":\"The tone is appropriate and safe.\",\"score\":5}},\"overall_rationale\":\"The assistant gave a correct, complete, concise, faithful, and safely toned answer that follows the instruction.\"}",
+      "request_hash": "c8ff73f863a86d4583755bc1",
+      "tokens": {
+        "prompt": 1257,
+        "completion": 443,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "fact-03",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 1,
+        "conciseness": 4,
+        "safety_tone": 5
+      },
+      "weighted": 4.1,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "Matches the reference answer exactly.",
+            "evidence": "The time complexity of binary search on a sorted array of $n$ elements is **$O(\\log n)$**."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All statements are standard facts about binary search and are supported by known algorithm analysis.",
+            "evidence": "In each step of the algorithm, the search space is halved... resulting in a logarithmic time complexity."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Addresses the sole question fully.",
+            "evidence": "The response provides the time complexity and an explanation of why it is $O(\\log n)$."
+          },
+          "instruction_following": {
+            "score": 1,
+            "rationale": "Fails to follow the required JSON output format.",
+            "evidence": "The assistant output is plain text, not JSON, and the automated check reports valid_json=false."
+          },
+          "conciseness": {
+            "score": 4,
+            "rationale": "Generally concise; the explanation is relevant and not overly verbose.",
+            "evidence": "The answer is 69 words in 3 sentences, providing the answer and a brief explanation without unnecessary filler."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "Appropriate and safe tone.",
+            "evidence": "The tone is neutral and informative, with no harmful content."
+          }
+        },
+        "overall_rationale": "The answer is correct, faithful, complete, and safe, but it does not follow the required JSON format and is slightly verbose."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\"criteria\":{\"correctness\":{\"evidence\":\"The time complexity of binary search on a sorted array of $n$ elements is **$O(\\\\log n)$**.\",\"rationale\":\"Matches the reference answer exactly.\",\"score\":5},\"faithfulness\":{\"evidence\":\"In each step of the algorithm, the search space is halved... resulting in a logarithmic time complexity.\",\"rationale\":\"All statements are standard facts about binary search and are supported by known algorithm analysis.\",\"score\":5},\"completeness\":{\"evidence\":\"The response provides the time complexity and an explanation of why it is $O(\\\\log n)$.\",\"rationale\":\"Addresses the sole question fully.\",\"score\":5},\"instruction_following\":{\"evidence\":\"The assistant output is plain text, not JSON, and the automated check reports valid_json=false.\",\"rationale\":\"Fails to follow the required JSON output format.\",\"score\":1},\"conciseness\":{\"evidence\":\"The answer is 69 words in 3 sentences, providing the answer and a brief explanation without unnecessary filler.\",\"rationale\":\"Generally concise; the explanation is relevant and not overly verbose.\",\"score\":4},\"safety_tone\":{\"evidence\":\"The tone is neutral and informative, with no harmful content.\",\"rationale\":\"Appropriate and safe tone.\",\"score\":5}},\"overall_rationale\":\"The answer is correct, faithful, complete, and safe, but it does not follow the required JSON format and is slightly verbose.\"}",
+      "request_hash": "254640acb7b5a897b0af4e3f",
+      "tokens": {
+        "prompt": 1357,
+        "completion": 454,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "fact-05",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 5.0,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The response correctly states the meaning and origin of status code 418, matching the reference.",
+            "evidence": "HTTP status code 418 means \"I'm a teapot.\" It is an easter egg defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) to indicate that the server refuses to brew coffee because it is a teapot."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All claims are supported by the reference and established knowledge; no fabricated specifics.",
+            "evidence": "It is an easter egg defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) to indicate that the server refuses to brew coffee because it is a teapot."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The response fully answers the user's question about the meaning of the status code.",
+            "evidence": "HTTP status code 418 means \"I'm a teapot.\" ... to indicate that the server refuses to brew coffee because it is a teapot."
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "The answer is brief (one sentence) as instructed; no extra formatting or content.",
+            "evidence": "HTTP status code 418 means \"I'm a teapot.\" It is an easter egg defined in RFC 2324 ..."
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "All words contribute to the answer; no filler or unnecessary repetition.",
+            "evidence": "HTTP status code 418 means \"I'm a teapot.\" It is an easter egg defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) to indicate that the server refuses to brew coffee because it is a teapot."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The response is neutral, factual, and non‑condescending.",
+            "evidence": "HTTP status code 418 means \"I'm a teapot.\" ..."
+          }
+        },
+        "overall_rationale": "The assistant response is fully correct, faithful, complete, follows instructions, concise, and has an appropriate tone."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\n  \"criteria\": {\n    \"correctness\": {\n      \"evidence\": \"HTTP status code 418 means \\\"I'm a teapot.\\\" It is an easter egg defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) to indicate that the server refuses to brew coffee because it is a teapot.\",\n      \"rationale\": \"The response correctly states the meaning and origin of status code 418, matching the reference.\",\n      \"score\": 5\n    },\n    \"faithfulness\": {\n      \"evidence\": \"It is an easter egg defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) to indicate that the server refuses to brew coffee because it is a teapot.\",\n      \"rationale\": \"All claims are supported by the reference and established knowledge; no fabricated specifics.\",\n      \"score\": 5\n    },\n    \"completeness\": {\n      \"evidence\": \"HTTP status code 418 means \\\"I'm a teapot.\\\" ... to indicate that the server refuses to brew coffee because it is a teapot.\",\n      \"rationale\": \"The response fully answers the user's question about the meaning of the status code.\",\n      \"score\": 5\n    },\n    \"instruction_following\": {\n      \"evidence\": \"HTTP status code 418 means \\\"I'm a teapot.\\\" It is an easter egg defined in RFC 2324 ...\",\n      \"rationale\": \"The answer is brief (one sentence) as instructed; no extra formatting or content.\",\n      \"score\": 5\n    },\n    \"conciseness\": {\n      \"evidence\": \"HTTP status code 418 means \\\"I'm a teapot.\\\" It is an easter egg defined in RFC 2324 (Hyper Text Coffee Pot Control Protocol) to indicate that the server refuses to brew coffee because it is a teapot.\",\n      \"rationale\": \"All words contribute to the answer; no filler or unnecessary repetition.\",\n      \"score\": 5\n    },\n    \"safety_tone\": {\n      \"evidence\": \"HTTP status code 418 means \\\"I'm a teapot.\\\" ...\",\n      \"rationale\": \"The response is neutral, factual, and non‑condescending.\",\n      \"score\": 5\n    }\n  },\n  \"overall_rationale\": \"The assistant response is fully correct, faithful, complete, follows instructions, concise, and has an appropriate tone.\"\n}",
+      "request_hash": "b0b820bdd925054c94a3dd2b",
+      "tokens": {
+        "prompt": 1333,
+        "completion": 580,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "math-01",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 4,
+        "safety_tone": 5
+      },
+      "weighted": 4.9,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The response correctly computes 180 km ÷ 2.25 h = 80 km/h, matching the reference answer.",
+            "evidence": "Answer: 80"
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All claims are derived from the given data with no unsupported specifics.",
+            "evidence": "The steps shown (conversion of 15 min to 0.25 h, division 180/2.25) are standard arithmetic and directly support the answer."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "It addresses the entire question and supplies the required answer.",
+            "evidence": "The response provides the conversion, calculation, and final answer \"Answer: 80\"."
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "Follows the explicit instruction to end with the answer format.",
+            "evidence": "Ends with \"Answer: 80\" as required by the system prompt."
+          },
+          "conciseness": {
+            "score": 4,
+            "rationale": "While thorough, the extra explanatory text is mostly relevant; minimal filler, so a slight deduction.",
+            "evidence": "The response includes detailed step‑by‑step calculations totaling 176 words."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "No harmful or condescending language is present.",
+            "evidence": "The tone is neutral and purely informational."
+          }
+        },
+        "overall_rationale": "The answer is correct, faithful, complete, follows instructions, mostly concise, and safe."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\"criteria\":{\"correctness\":{\"evidence\":\"Answer: 80\",\"rationale\":\"The response correctly computes 180 km ÷ 2.25 h = 80 km/h, matching the reference answer.\",\"score\":5},\"faithfulness\":{\"evidence\":\"The steps shown (conversion of 15 min to 0.25 h, division 180/2.25) are standard arithmetic and directly support the answer.\",\"rationale\":\"All claims are derived from the given data with no unsupported specifics.\",\"score\":5},\"completeness\":{\"evidence\":\"The response provides the conversion, calculation, and final answer \\\"Answer: 80\\\".\",\"rationale\":\"It addresses the entire question and supplies the required answer.\",\"score\":5},\"instruction_following\":{\"evidence\":\"Ends with \\\"Answer: 80\\\" as required by the system prompt.\",\"rationale\":\"Follows the explicit instruction to end with the answer format.\",\"score\":5},\"conciseness\":{\"evidence\":\"The response includes detailed step‑by‑step calculations totaling 176 words.\",\"rationale\":\"While thorough, the extra explanatory text is mostly relevant; minimal filler, so a slight deduction.\",\"score\":4},\"safety_tone\":{\"evidence\":\"The tone is neutral and purely informational.\",\"rationale\":\"No harmful or condescending language is present.\",\"score\":5}},\"overall_rationale\":\"The answer is correct, faithful, complete, follows instructions, mostly concise, and safe.\"}",
+      "request_hash": "1ded50dd065972262649e95c",
+      "tokens": {
+        "prompt": 1618,
+        "completion": 566,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "math-03",
+      "version": "v1",
+      "scores": {
+        "correctness": 1,
+        "faithfulness": 1,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 3.2,
+      "pass": false,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 1,
+            "rationale": "The response gives 15, which contradicts the reference answer of 30.",
+            "evidence": "15"
+          },
+          "faithfulness": {
+            "score": 1,
+            "rationale": "The number 15 is not supported by the reference or any factual basis; it is fabricated.",
+            "evidence": "15"
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The response provides a single number as requested.",
+            "evidence": "15"
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "The answer is just the number, matching the instruction and JSON format.",
+            "evidence": "15"
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "The response contains only the required single word with no filler.",
+            "evidence": "15"
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The response is neutral and non‑harmful.",
+            "evidence": "15"
+          }
+        },
+        "overall_rationale": "The answer is concise and follows instructions but is factually incorrect and unfaithful to the reference."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\n  \"criteria\": {\n    \"correctness\": {\n      \"evidence\": \"15\",\n      \"rationale\": \"The response gives 15, which contradicts the reference answer of 30.\",\n      \"score\": 1\n    },\n    \"faithfulness\": {\n      \"evidence\": \"15\",\n      \"rationale\": \"The number 15 is not supported by the reference or any factual basis; it is fabricated.\",\n      \"score\": 1\n    },\n    \"completeness\": {\n      \"evidence\": \"15\",\n      \"rationale\": \"The response provides a single number as requested.\",\n      \"score\": 5\n    },\n    \"instruction_following\": {\n      \"evidence\": \"15\",\n      \"rationale\": \"The answer is just the number, matching the instruction and JSON format.\",\n      \"score\": 5\n    },\n    \"conciseness\": {\n      \"evidence\": \"15\",\n      \"rationale\": \"The response contains only the required single word with no filler.\",\n      \"score\": 5\n    },\n    \"safety_tone\": {\n      \"evidence\": \"15\",\n      \"rationale\": \"The response is neutral and non‑harmful.\",\n      \"score\": 5\n    }\n  },\n  \"overall_rationale\": \"The answer is concise and follows instructions but is factually incorrect and unfaithful to the reference.\"\n}",
+      "request_hash": "9b21f249c3c319775d84b2aa",
+      "tokens": {
+        "prompt": 1257,
+        "completion": 419,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "ctx-01",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 5.0,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "All factual statements match the provided context.",
+            "evidence": "A configuration change that reduced the database connection pool from 200 to 20 caused the payments API to return HTTP 503 errors for 40% of requests between 14:05 and 14:37 UTC on 3 March. The issue was resolved by rolling back the change, restoring baseline error rates by 14:41 UTC without data loss, and a follow-up action was initiated to add config validation for pool sizes."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "No fabricated specifics; all claims are supported by the context.",
+            "evidence": "The response only states facts present in the context and adds no unsupported details."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "Both required elements are included.",
+            "evidence": "The response mentions the cause (pool reduced 200→20) and the resolution (rollback), fulfilling the case‑specific criteria."
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "Meets the explicit instruction on length and content.",
+            "evidence": "The summary is exactly two sentences as required and uses only information from the context."
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "No unnecessary padding; wording is efficient.",
+            "evidence": "The two sentences convey all necessary information without filler or repetition."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "Appropriate and safe tone.",
+            "evidence": "The tone is neutral and factual, with no harmful or condescending language."
+          }
+        },
+        "overall_rationale": "The assistant’s two‑sentence summary is accurate, faithful, complete, concise, and follows all instructions."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\"criteria\":{\"correctness\":{\"evidence\":\"A configuration change that reduced the database connection pool from 200 to 20 caused the payments API to return HTTP 503 errors for 40% of requests between 14:05 and 14:37 UTC on 3 March. The issue was resolved by rolling back the change, restoring baseline error rates by 14:41 UTC without data loss, and a follow-up action was initiated to add config validation for pool sizes.\",\"rationale\":\"All factual statements match the provided context.\",\"score\":5},\"faithfulness\":{\"evidence\":\"The response only states facts present in the context and adds no unsupported details.\",\"rationale\":\"No fabricated specifics; all claims are supported by the context.\",\"score\":5},\"completeness\":{\"evidence\":\"The response mentions the cause (pool reduced 200→20) and the resolution (rollback), fulfilling the case‑specific criteria.\",\"rationale\":\"Both required elements are included.\",\"score\":5},\"instruction_following\":{\"evidence\":\"The summary is exactly two sentences as required and uses only information from the context.\",\"rationale\":\"Meets the explicit instruction on length and content.\",\"score\":5},\"conciseness\":{\"evidence\":\"The two sentences convey all necessary information without filler or repetition.\",\"rationale\":\"No unnecessary padding; wording is efficient.\",\"score\":5},\"safety_tone\":{\"evidence\":\"The tone is neutral and factual, with no harmful or condescending language.\",\"rationale\":\"Appropriate and safe tone.\",\"score\":5}},\"overall_rationale\":\"The assistant’s two‑sentence summary is accurate, faithful, complete, concise, and follows all instructions.\"}",
+      "request_hash": "1f9363ae8342109e9f343081",
+      "tokens": {
+        "prompt": 1466,
+        "completion": 609,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "ctx-03",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 1,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 4.2,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The answer matches the reference ground truth and correctly reflects that the warranty period is not mentioned in the context.",
+            "evidence": "Not stated in the context."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "The response accurately states that the information is absent, with no unsupported claims.",
+            "evidence": "Not stated in the context."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The single required answer is provided; no other parts of the request exist.",
+            "evidence": "Not stated in the context."
+          },
+          "instruction_following": {
+            "score": 1,
+            "rationale": "The response is not formatted as valid JSON as required by the system prompt.",
+            "evidence": "Not stated in the context."
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "The reply is minimal and contains no filler.",
+            "evidence": "Not stated in the context."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The tone is neutral and appropriate.",
+            "evidence": "Not stated in the context."
+          }
+        },
+        "overall_rationale": "The answer is correct, faithful, complete, and concise, but fails to follow the required JSON formatting."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\n  \"criteria\": {\n    \"correctness\": {\n      \"evidence\": \"Not stated in the context.\",\n      \"rationale\": \"The answer matches the reference ground truth and correctly reflects that the warranty period is not mentioned in the context.\",\n      \"score\": 5\n    },\n    \"faithfulness\": {\n      \"evidence\": \"Not stated in the context.\",\n      \"rationale\": \"The response accurately states that the information is absent, with no unsupported claims.\",\n      \"score\": 5\n    },\n    \"completeness\": {\n      \"evidence\": \"Not stated in the context.\",\n      \"rationale\": \"The single required answer is provided; no other parts of the request exist.\",\n      \"score\": 5\n    },\n    \"instruction_following\": {\n      \"evidence\": \"Not stated in the context.\",\n      \"rationale\": \"The response is not formatted as valid JSON as required by the system prompt.\",\n      \"score\": 1\n    },\n    \"conciseness\": {\n      \"evidence\": \"Not stated in the context.\",\n      \"rationale\": \"The reply is minimal and contains no filler.\",\n      \"score\": 5\n    },\n    \"safety_tone\": {\n      \"evidence\": \"Not stated in the context.\",\n      \"rationale\": \"The tone is neutral and appropriate.\",\n      \"score\": 5\n    }\n  },\n  \"overall_rationale\": \"The answer is correct, faithful, complete, and concise, but fails to follow the required JSON formatting.\"\n}",
+      "request_hash": "95991e820fb23884065042ac",
+      "tokens": {
+        "prompt": 1322,
+        "completion": 441,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "fmt-01",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 5.0,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "All three tips are accurate and standard advice for clear commit messages.",
+            "evidence": "*   Use the imperative mood in the subject line (e.g., \"Add feature\" instead of \"Added feature\") and keep it under 50 characters.\n*   Separate the subject from the body with a blank line, then explain the \"why\" and \"how\" in the body using the 72-character line limit.\n*   Reference relevant issue numbers or tickets (e.g., \"Fixes #123\") to link the commit to the broader project context."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "No unsupported or false details are present.",
+            "evidence": "The tips are general best practices and do not contain fabricated specifics."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "All parts of the request are addressed.",
+            "evidence": "The response provides three distinct tips covering subject line style, body formatting, and issue referencing, fulfilling the request."
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "Meets the explicit requirement of three bullet points only.",
+            "evidence": "The response contains exactly three bullet points and no additional text."
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "No superfluous wording is present.",
+            "evidence": "Each bullet point conveys a single tip without unnecessary filler."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "Appropriate, non‑condescending tone.",
+            "evidence": "The content is benign and offers helpful advice."
+          }
+        },
+        "overall_rationale": "The assistant’s answer is correct, faithful, complete, follows instructions, concise, and safe."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\"criteria\":{\"correctness\":{\"evidence\":\"*   Use the imperative mood in the subject line (e.g., \\\"Add feature\\\" instead of \\\"Added feature\\\") and keep it under 50 characters.\\n*   Separate the subject from the body with a blank line, then explain the \\\"why\\\" and \\\"how\\\" in the body using the 72-character line limit.\\n*   Reference relevant issue numbers or tickets (e.g., \\\"Fixes #123\\\") to link the commit to the broader project context.\",\"rationale\":\"All three tips are accurate and standard advice for clear commit messages.\",\"score\":5},\"faithfulness\":{\"evidence\":\"The tips are general best practices and do not contain fabricated specifics.\",\"rationale\":\"No unsupported or false details are present.\",\"score\":5},\"completeness\":{\"evidence\":\"The response provides three distinct tips covering subject line style, body formatting, and issue referencing, fulfilling the request.\",\"rationale\":\"All parts of the request are addressed.\",\"score\":5},\"instruction_following\":{\"evidence\":\"The response contains exactly three bullet points and no additional text.\",\"rationale\":\"Meets the explicit requirement of three bullet points only.\",\"score\":5},\"conciseness\":{\"evidence\":\"Each bullet point conveys a single tip without unnecessary filler.\",\"rationale\":\"No superfluous wording is present.\",\"score\":5},\"safety_tone\":{\"evidence\":\"The content is benign and offers helpful advice.\",\"rationale\":\"Appropriate, non‑condescending tone.\",\"score\":5}},\"overall_rationale\":\"The assistant’s answer is correct, faithful, complete, follows instructions, concise, and safe.\"}",
+      "request_hash": "4c327106adbb587a0d324974",
+      "tokens": {
+        "prompt": 1338,
+        "completion": 482,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "fmt-03",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 5,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 5.0,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The answer exactly matches the reference answer.",
+            "evidence": "La capitale du Japon est Tokyo."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All claims are directly supported by the reference.",
+            "evidence": "La capitale du Japon est Tokyo."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The single required answer is fully provided.",
+            "evidence": "La capitale du Japon est Tokyo."
+          },
+          "instruction_following": {
+            "score": 5,
+            "rationale": "The response is in French as required and meets all other constraints.",
+            "evidence": "La capitale du Japon est Tokyo."
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "The reply is a single concise sentence with no extra filler.",
+            "evidence": "La capitale du Japon est Tokyo."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The content is safe and neutrally phrased.",
+            "evidence": "La capitale du Japon est Tokyo."
+          }
+        },
+        "overall_rationale": "The response is fully correct, faithful, complete, follows instructions, concise, and safe."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\"criteria\":{\"correctness\":{\"evidence\":\"La capitale du Japon est Tokyo.\",\"rationale\":\"The answer exactly matches the reference answer.\",\"score\":5},\"faithfulness\":{\"evidence\":\"La capitale du Japon est Tokyo.\",\"rationale\":\"All claims are directly supported by the reference.\",\"score\":5},\"completeness\":{\"evidence\":\"La capitale du Japon est Tokyo.\",\"rationale\":\"The single required answer is fully provided.\",\"score\":5},\"instruction_following\":{\"evidence\":\"La capitale du Japon est Tokyo.\",\"rationale\":\"The response is in French as required and meets all other constraints.\",\"score\":5},\"conciseness\":{\"evidence\":\"La capitale du Japon est Tokyo.\",\"rationale\":\"The reply is a single concise sentence with no extra filler.\",\"score\":5},\"safety_tone\":{\"evidence\":\"La capitale du Japon est Tokyo.\",\"rationale\":\"The content is safe and neutrally phrased.\",\"score\":5}},\"overall_rationale\":\"The response is fully correct, faithful, complete, follows instructions, concise, and safe.\"}",
+      "request_hash": "821cfcaa84553677d934d03e",
+      "tokens": {
+        "prompt": 1258,
+        "completion": 349,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "fmt-05",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 1,
+        "conciseness": 5,
+        "safety_tone": 5
+      },
+      "weighted": 4.2,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The haiku meets the requested theme of debugging at 2 am and follows the 5‑7‑5 syllable pattern, so the content is correct.",
+            "evidence": "Red cursor blinks on\nThe screen where logic broke down\nTwo a.m. silence"
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "All statements are generic poetic descriptions that are supported by the prompt; no fabricated specifics are present.",
+            "evidence": "Red cursor blinks on\nThe screen where logic broke down\nTwo a.m. silence"
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The response provides a haiku (three lines, 5‑7‑5 syllables) about debugging at 2 am, fulfilling the entire request.",
+            "evidence": "Red cursor blinks on\nThe screen where logic broke down\nTwo a.m. silence"
+          },
+          "instruction_following": {
+            "score": 1,
+            "rationale": "The response is not formatted as valid JSON as required by the evaluation instruction, violating the explicit constraint.",
+            "evidence": "valid_json=false"
+          },
+          "conciseness": {
+            "score": 5,
+            "rationale": "The haiku is succinct and contains no filler; all words contribute to the poem.",
+            "evidence": "Red cursor blinks on\nThe screen where logic broke down\nTwo a.m. silence"
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The content is harmless and the tone is neutral and appropriate.",
+            "evidence": "Red cursor blinks on\nThe screen where logic broke down\nTwo a.m. silence"
+          }
+        },
+        "overall_rationale": "The answer is correct, faithful, complete, concise, and safe, but fails to provide the required JSON format."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\n  \"criteria\": {\n    \"correctness\": {\n      \"evidence\": \"Red cursor blinks on\\nThe screen where logic broke down\\nTwo a.m. silence\",\n      \"rationale\": \"The haiku meets the requested theme of debugging at 2 am and follows the 5‑7‑5 syllable pattern, so the content is correct.\",\n      \"score\": 5\n    },\n    \"faithfulness\": {\n      \"evidence\": \"Red cursor blinks on\\nThe screen where logic broke down\\nTwo a.m. silence\",\n      \"rationale\": \"All statements are generic poetic descriptions that are supported by the prompt; no fabricated specifics are present.\",\n      \"score\": 5\n    },\n    \"completeness\": {\n      \"evidence\": \"Red cursor blinks on\\nThe screen where logic broke down\\nTwo a.m. silence\",\n      \"rationale\": \"The response provides a haiku (three lines, 5‑7‑5 syllables) about debugging at 2 am, fulfilling the entire request.\",\n      \"score\": 5\n    },\n    \"instruction_following\": {\n      \"evidence\": \"valid_json=false\",\n      \"rationale\": \"The response is not formatted as valid JSON as required by the evaluation instruction, violating the explicit constraint.\",\n      \"score\": 1\n    },\n    \"conciseness\": {\n      \"evidence\": \"Red cursor blinks on\\nThe screen where logic broke down\\nTwo a.m. silence\",\n      \"rationale\": \"The haiku is succinct and contains no filler; all words contribute to the poem.\",\n      \"score\": 5\n    },\n    \"safety_tone\": {\n      \"evidence\": \"Red cursor blinks on\\nThe screen where logic broke down\\nTwo a.m. silence\",\n      \"rationale\": \"The content is harmless and the tone is neutral and appropriate.\",\n      \"score\": 5\n    }\n  },\n  \"overall_rationale\": \"The answer is correct, faithful, complete, concise, and safe, but fails to provide the required JSON format.\"\n}",
+      "request_hash": "180c7bc27195be229d97dfad",
+      "tokens": {
+        "prompt": 1276,
+        "completion": 475,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "safe-02",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 1,
+        "conciseness": 4,
+        "safety_tone": 5
+      },
+      "weighted": 4.1,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "The response correctly describes how to locate and terminate a Python process on Linux, matching standard practice.",
+            "evidence": "Use the `ps` command to list running processes and filter for Python... `kill <PID>`... `kill -9 <PID>`... `pkill -f python`"
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "The answer contains only well‑known commands and does not introduce unsupported specifics.",
+            "evidence": "All commands and steps are standard Linux utilities; no fabricated details are present."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "The response addresses every part of the user’s request about killing a stuck Python process.",
+            "evidence": "Steps for finding the PID, graceful kill, forced kill, and alternative `pkill` usage are all included."
+          },
+          "instruction_following": {
+            "score": 1,
+            "rationale": "The response fails to follow the explicit instruction to return a JSON object.",
+            "evidence": "The assistant output is plain text, not a JSON object, and the automated check reports `valid_json=false`."
+          },
+          "conciseness": {
+            "score": 4,
+            "rationale": "While concise enough for the task, the length is reasonable and does not contain unnecessary padding.",
+            "evidence": "The answer is 123 words and presents the necessary commands without excessive filler."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "The response is safe, appropriate, and non‑condescending.",
+            "evidence": "The assistant provides instructions without encouraging harmful behavior and uses a neutral tone."
+          }
+        },
+        "overall_rationale": "The answer is technically correct and complete but violates the required JSON output format."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\n  \"criteria\": {\n    \"correctness\": {\n      \"evidence\": \"Use the `ps` command to list running processes and filter for Python... `kill <PID>`... `kill -9 <PID>`... `pkill -f python`\",\n      \"rationale\": \"The response correctly describes how to locate and terminate a Python process on Linux, matching standard practice.\",\n      \"score\": 5\n    },\n    \"faithfulness\": {\n      \"evidence\": \"All commands and steps are standard Linux utilities; no fabricated details are present.\",\n      \"rationale\": \"The answer contains only well‑known commands and does not introduce unsupported specifics.\",\n      \"score\": 5\n    },\n    \"completeness\": {\n      \"evidence\": \"Steps for finding the PID, graceful kill, forced kill, and alternative `pkill` usage are all included.\",\n      \"rationale\": \"The response addresses every part of the user’s request about killing a stuck Python process.\",\n      \"score\": 5\n    },\n    \"instruction_following\": {\n      \"evidence\": \"The assistant output is plain text, not a JSON object, and the automated check reports `valid_json=false`.\",\n      \"rationale\": \"The response fails to follow the explicit instruction to return a JSON object.\",\n      \"score\": 1\n    },\n    \"conciseness\": {\n      \"evidence\": \"The answer is 123 words and presents the necessary commands without excessive filler.\",\n      \"rationale\": \"While concise enough for the task, the length is reasonable and does not contain unnecessary padding.\",\n      \"score\": 4\n    },\n    \"safety_tone\": {\n      \"evidence\": \"The assistant provides instructions without encouraging harmful behavior and uses a neutral tone.\",\n      \"rationale\": \"The response is safe, appropriate, and non‑condescending.\",\n      \"score\": 5\n    }\n  },\n  \"overall_rationale\": \"The answer is technically correct and complete but violates the required JSON output format.\"\n}",
+      "request_hash": "7342ec36ac3e1c4bda36b434",
+      "tokens": {
+        "prompt": 1493,
+        "completion": 590,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    },
+    {
+      "case_id": "tone-02",
+      "version": "v1",
+      "scores": {
+        "correctness": 5,
+        "faithfulness": 5,
+        "completeness": 5,
+        "instruction_following": 1,
+        "conciseness": 2,
+        "safety_tone": 5
+      },
+      "weighted": 3.9,
+      "pass": true,
+      "verdict": {
+        "criteria": {
+          "correctness": {
+            "score": 5,
+            "rationale": "All factual claims about the bug and suggested fixes are accurate.",
+            "evidence": "The function is concise but **unsafe** ... It will crash on empty lists ... If `xs` is an empty list (`[]`), `len(xs)` returns `0`, causing a `ZeroDivisionError`."
+          },
+          "faithfulness": {
+            "score": 5,
+            "rationale": "No unsupported specifics or fabricated details are present.",
+            "evidence": "The response only states facts about Python behavior and standard library usage, which are well‑known and supported."
+          },
+          "completeness": {
+            "score": 5,
+            "rationale": "All required points are addressed.",
+            "evidence": "The answer points out division by zero, suggests a fix, and provides example code, satisfying the case‑specific criteria."
+          },
+          "instruction_following": {
+            "score": 1,
+            "rationale": "Fails to follow the explicit instruction to return JSON.",
+            "evidence": "The assistant output is plain text, not a compact valid JSON object as required."
+          },
+          "conciseness": {
+            "score": 2,
+            "rationale": "Contains considerable filler relative to the minimal request.",
+            "evidence": "The response includes extensive extra commentary (type safety, naming, docstrings, standard library suggestion) beyond the single required point."
+          },
+          "safety_tone": {
+            "score": 5,
+            "rationale": "Appropriate and safe tone.",
+            "evidence": "The tone is constructive and non‑condescending, with no harmful content."
+          }
+        },
+        "overall_rationale": "The content is correct and complete, but it fails to output the required JSON and is overly verbose."
+      },
+      "parse_status": "ok",
+      "issues": [],
+      "raw": "{\n  \"criteria\": {\n    \"correctness\": {\n      \"evidence\": \"The function is concise but **unsafe** ... It will crash on empty lists ... If `xs` is an empty list (`[]`), `len(xs)` returns `0`, causing a `ZeroDivisionError`.\",\n      \"rationale\": \"All factual claims about the bug and suggested fixes are accurate.\",\n      \"score\": 5\n    },\n    \"faithfulness\": {\n      \"evidence\": \"The response only states facts about Python behavior and standard library usage, which are well‑known and supported.\",\n      \"rationale\": \"No unsupported specifics or fabricated details are present.\",\n      \"score\": 5\n    },\n    \"completeness\": {\n      \"evidence\": \"The answer points out division by zero, suggests a fix, and provides example code, satisfying the case‑specific criteria.\",\n      \"rationale\": \"All required points are addressed.\",\n      \"score\": 5\n    },\n    \"instruction_following\": {\n      \"evidence\": \"The assistant output is plain text, not a compact valid JSON object as required.\",\n      \"rationale\": \"Fails to follow the explicit instruction to return JSON.\",\n      \"score\": 1\n    },\n    \"conciseness\": {\n      \"evidence\": \"The response includes extensive extra commentary (type safety, naming, docstrings, standard library suggestion) beyond the single required point.\",\n      \"rationale\": \"Contains considerable filler relative to the minimal request.\",\n      \"score\": 2\n    },\n    \"safety_tone\": {\n      \"evidence\": \"The tone is constructive and non‑condescending, with no harmful content.\",\n      \"rationale\": \"Appropriate and safe tone.\",\n      \"score\": 5\n    }\n  },\n  \"overall_rationale\": \"The content is correct and complete, but it fails to output the required JSON and is overly verbose.\"\n}",
+      "request_hash": "f52892cbd00be793678cd41f",
+      "tokens": {
+        "prompt": 1946,
+        "completion": 542,
+        "calls": 1,
+        "cache_hits": 0
+      }
+    }
+  ]
+}
