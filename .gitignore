@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+# local vector store + model caches (rebuilt by ingest)
+p1_rag/data/lancedb/
+p1_rag/data/faiss/
+p1_rag/.cache/
+# raw request logs (results/ summaries ARE committed)
+p1_rag/logs/
