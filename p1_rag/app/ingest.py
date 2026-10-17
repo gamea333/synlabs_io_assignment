@@ -38,12 +38,12 @@ def file_hash(path: Path) -> str:
 
 
 def ingest_dir(root: Path, chunk_size: int | None = None, chunk_overlap: int | None = None,
-               force: bool = False, prune: bool = False) -> IngestReport:
+               force: bool = False, prune: bool = False, table: str | None = None) -> IngestReport:
     s = get_settings()
     size = chunk_size or s.chunk_size
     overlap = s.chunk_overlap if chunk_overlap is None else chunk_overlap
     embedder = get_embedder()
-    store = VectorStore(embedder.dim)
+    store = VectorStore(embedder.dim, table=table)
     rep = IngestReport(vectors_before=store.count())
     t0 = time.perf_counter()
 

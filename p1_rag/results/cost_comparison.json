@@ -1,0 +1,157 @@
+{
+  "assumptions": {
+    "HOURS_PER_MONTH": 730,
+    "GB": 1000000000.0,
+    "DIM": 384,
+    "BYTES_VECTOR": 1536,
+    "BYTES_RECORD": 3730,
+    "QUERIES_PER_MONTH": 100000,
+    "MONTHLY_CHURN": 0.1,
+    "SCALES": [
+      100000,
+      1000000,
+      10000000
+    ],
+    "PC_MIN_MONTHLY": 50.0,
+    "PC_STORAGE_PER_GB": 0.33,
+    "PC_PER_M_RU": 16.0,
+    "PC_PER_M_WU": 4.0,
+    "PC_RU_PER_GB_PER_QUERY": 1.0,
+    "PC_RU_MIN_PER_QUERY": 0.25,
+    "PC_WU_PER_KB": 1.0,
+    "POD_PRICE_HR": {
+      "s1.x1": 0.111,
+      "p1.x1": 0.111
+    },
+    "POD_CAPACITY_BYTES": {
+      "s1.x1": 15360000000,
+      "p1.x1": 3072000000
+    },
+    "POD_REPLICAS": 1,
+    "EC2_PRICE_HR": {
+      "t4g.medium": 0.0336,
+      "t4g.large": 0.0672,
+      "r7g.large": 0.1071
+    },
+    "EBS_GP3_PER_GB": 0.08,
+    "EBS_MIN_GB": 20,
+    "STORAGE_OVERHEAD": 1.5,
+    "S3_PER_GB": 0.023
+  },
+  "rows": [
+    {
+      "vectors": 100000,
+      "lancedb": {
+        "instance": "t4g.medium",
+        "data_gb": 0.37,
+        "disk_gb": 20,
+        "compute": 24.53,
+        "storage": 1.6,
+        "s3_backup": 0.01,
+        "total": 26.14
+      },
+      "pinecone_serverless": {
+        "data_gb": 0.37,
+        "ru_per_query": 0.37,
+        "storage": 0.12,
+        "reads": 0.6,
+        "writes": 0.3,
+        "usage": 1.02,
+        "total": 50.0
+      },
+      "pinecone_p1_pods": {
+        "pod": "p1.x1",
+        "pods": 1,
+        "total": 81.03
+      },
+      "pinecone_s1_pods": {
+        "pod": "s1.x1",
+        "pods": 1,
+        "total": 81.03
+      },
+      "serverless_by_query_volume": {
+        "10000": 50.0,
+        "100000": 50.0,
+        "1000000": 50.0,
+        "10000000": 60.1
+      },
+      "breakeven_queries_per_month": 0
+    },
+    {
+      "vectors": 1000000,
+      "lancedb": {
+        "instance": "t4g.medium",
+        "data_gb": 3.73,
+        "disk_gb": 20,
+        "compute": 24.53,
+        "storage": 1.6,
+        "s3_backup": 0.09,
+        "total": 26.21
+      },
+      "pinecone_serverless": {
+        "data_gb": 3.73,
+        "ru_per_query": 3.73,
+        "storage": 1.23,
+        "reads": 5.97,
+        "writes": 2.98,
+        "usage": 10.18,
+        "total": 50.0
+      },
+      "pinecone_p1_pods": {
+        "pod": "p1.x1",
+        "pods": 2,
+        "total": 162.06
+      },
+      "pinecone_s1_pods": {
+        "pod": "s1.x1",
+        "pods": 1,
+        "total": 81.03
+      },
+      "serverless_by_query_volume": {
+        "10000": 50.0,
+        "100000": 50.0,
+        "1000000": 63.89,
+        "10000000": 601.01
+      },
+      "breakeven_queries_per_month": 0
+    },
+    {
+      "vectors": 10000000,
+      "lancedb": {
+        "instance": "r7g.large",
+        "data_gb": 37.3,
+        "disk_gb": 56,
+        "compute": 78.18,
+        "storage": 4.48,
+        "s3_backup": 0.86,
+        "total": 83.52
+      },
+      "pinecone_serverless": {
+        "data_gb": 37.3,
+        "ru_per_query": 37.3,
+        "storage": 12.31,
+        "reads": 59.68,
+        "writes": 29.84,
+        "usage": 101.83,
+        "total": 101.83
+      },
+      "pinecone_p1_pods": {
+        "pod": "p1.x1",
+        "pods": 13,
+        "total": 1053.39
+      },
+      "pinecone_s1_pods": {
+        "pod": "s1.x1",
+        "pods": 3,
+        "total": 243.09
+      },
+      "serverless_by_query_volume": {
+        "10000": 50.0,
+        "100000": 101.83,
+        "1000000": 638.95,
+        "10000000": 6010.15
+      },
+      "breakeven_queries_per_month": 69320
+    }
+  ]
+}

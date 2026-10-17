@@ -9,7 +9,8 @@ from app.config import get_settings
 
 def cmd_ingest(args) -> None:
     from app.ingest import ingest_dir
-    rep = ingest_dir(Path(args.path), args.chunk_size, args.chunk_overlap, force=args.force, prune=args.prune)
+    rep = ingest_dir(Path(args.path), args.chunk_size, args.chunk_overlap, force=args.force, prune=args.prune,
+                     table=args.table)
     print(json.dumps(rep.__dict__, indent=2))
 
 
@@ -54,6 +55,7 @@ def main() -> None:
     pi.add_argument("--chunk-overlap", type=int, default=None, help="tokens (default from CHUNK_OVERLAP=64)")
     pi.add_argument("--force", action="store_true", help="re-embed even unchanged files (still no duplicates)")
     pi.add_argument("--prune", action="store_true", help="delete vectors for files no longer on disk")
+    pi.add_argument("--table", default=None, help="LanceDB table (default LANCEDB_TABLE); used for chunking sweeps")
     pi.set_defaults(func=cmd_ingest)
 
     pq = sub.add_parser("query", help="ask a question, get a cited answer")
