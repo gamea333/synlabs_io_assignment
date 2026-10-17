@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>P1 RAG architecture</title>
+<style>
+  body { margin: 0; padding: 16px; width: 1100px; background: #ffffff; font-family: Segoe UI, Arial, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 12px; color: #1f3b57; }
+  .note { font-size: 12px; color: #555; margin-top: 8px; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+<h1>P1 — Cost-efficient RAG on LanceDB: ingestion and query path</h1>
+<pre class="mermaid">
+flowchart TB
+  subgraph ING[Ingestion - python -m app.cli ingest / POST /ingest]
+    direction TB
+    A[Corpus folder<br/>PDF / HTML / MD] --> B[Loaders<br/>pypdf page-aware<br/>BeautifulSoup boilerplate strip<br/>MD cleanup]
+    B --> C[Token chunker cl100k<br/>size 256, overlap 32]
+    C --> D{file hash + chunk config<br/>+ model unchanged?}
+    D -- yes --> SKIP[skip file<br/>no re-embedding]
+    D -- no --> E[Embed: bge-small-en-v1.5<br/>384-d, local ONNX]
+    E --> F[(LanceDB table on disk<br/>vector + text + source, doc_type,<br/>page, chunk_idx, doc_hash<br/>delete stale, merge_insert on chunk_id)]
+  end
+  subgraph QRY[Query - POST /query]
+    direction TB
+    Q[question, k, doc_type?, source?] --> QE[Embed query<br/>bge query prefix]
+    QE --> R[Top-k cosine search<br/>metadata PRE-filter]
+    F --> R
+    R --> G1{Gate 1: any chunk<br/>score >= MIN_SCORE 0.50?}
+    G1 -- no --> NO1[NO RELEVANT CONTEXT<br/>refuse, LLM not called, 0 tokens]
+    G1 -- yes --> P[Prompt: numbered passages<br/>+ cite every sentence n<br/>+ exact refusal string]
+    P --> L[LLM gpt-oss-20b via Groq<br/>OpenAI-compatible]
+    L --> G2{Gate 2: model returned<br/>refusal string?}
+    G2 -- yes --> NO2[NO RELEVANT CONTEXT<br/>refuse: llm_insufficient_context]
+    G2 -- no --> CIT[Map n to chunk_id, source,<br/>page, score]
+    CIT --> OUT[JSON: answer + citations]
+    NO1 --> LOG[logs/queries.jsonl<br/>latency embed/search/llm/throttle<br/>chunks retrieved/used, tokens]
+    NO2 --> LOG
+    OUT --> LOG
+  end
+  style NO1 fill:#fde2e1,stroke:#c0392b
+  style NO2 fill:#fde2e1,stroke:#c0392b
+  style F fill:#e3f0fb,stroke:#1f3b57
+</pre>
+<div class="note">Red boxes = "no relevant context" branch. Defaults from .env: CHUNK_SIZE=256, CHUNK_OVERLAP=32, TOP_K=5, MIN_SCORE=0.50.</div>
+<script>mermaid.initialize({ startOnLoad: true, theme: "default", flowchart: { htmlLabels: true, curve: "basis", nodeSpacing: 30, rankSpacing: 40 }, themeVariables: { fontSize: "18px" } });</script>
+</body>
+</html>

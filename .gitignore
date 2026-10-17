@@ -10,3 +10,4 @@ p1_rag/.cache/
 p1_rag/logs/
 # arXiv PDFs are re-downloadable from immutable versioned URLs (scripts/fetch_corpus.py)
 p1_rag/data/corpus/pdf/
+.playwright-mcp/
