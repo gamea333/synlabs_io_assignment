@@ -51,8 +51,8 @@ def main() -> None:
 
     pi = sub.add_parser("ingest", help="ingest a folder of PDF/HTML/MD files")
     pi.add_argument("path")
-    pi.add_argument("--chunk-size", type=int, default=None, help="tokens (default from CHUNK_SIZE=512)")
-    pi.add_argument("--chunk-overlap", type=int, default=None, help="tokens (default from CHUNK_OVERLAP=64)")
+    pi.add_argument("--chunk-size", type=int, default=None, help="tokens (default from CHUNK_SIZE=256)")
+    pi.add_argument("--chunk-overlap", type=int, default=None, help="tokens (default from CHUNK_OVERLAP=32)")
     pi.add_argument("--force", action="store_true", help="re-embed even unchanged files (still no duplicates)")
     pi.add_argument("--prune", action="store_true", help="delete vectors for files no longer on disk")
     pi.add_argument("--table", default=None, help="LanceDB table (default LANCEDB_TABLE); used for chunking sweeps")

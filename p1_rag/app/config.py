@@ -14,11 +14,11 @@ class Settings(BaseSettings):
 
     embed_model: str = "BAAI/bge-small-en-v1.5"
 
-    chunk_size: int = 512      # tokens (cl100k)
-    chunk_overlap: int = 64    # tokens
+    chunk_size: int = 256      # tokens (cl100k); chosen by eval/sweep.py
+    chunk_overlap: int = 32    # tokens (12.5%)
 
     top_k: int = 5
-    min_score: float = 0.58    # cosine floor; calibrated: off-topic top-1 <= 0.547, on-topic >= 0.615
+    min_score: float = 0.50    # gate-1 cosine floor; see .env.example for calibration
 
     lancedb_uri: str = "data/lancedb"
     lancedb_table: str = "chunks"

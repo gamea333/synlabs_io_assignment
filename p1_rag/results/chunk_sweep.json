@@ -1,0 +1,181 @@
+{
+  "run_at": "2026-10-17T12:01:09",
+  "chunking": [
+    {
+      "chunk_size": 128,
+      "overlap": 16,
+      "vectors": 921,
+      "context_tokens_at_k5": 640,
+      "ingest_seconds": 76.5,
+      "hit_rate": 0.7826,
+      "recall": 0.6377,
+      "evidence_recall": 0.7826,
+      "mrr": 0.6007,
+      "ndcg": 0.5739,
+      "precision_at_k": 0.2609,
+      "context_precision": 0.5553,
+      "search_p50_ms": 18.22,
+      "search_p95_ms": 19.99,
+      "missed": [
+        "q04",
+        "q05",
+        "q07",
+        "q17",
+        "q23"
+      ]
+    },
+    {
+      "chunk_size": 256,
+      "overlap": 32,
+      "vectors": 463,
+      "context_tokens_at_k5": 1280,
+      "ingest_seconds": 87.65,
+      "hit_rate": 0.8696,
+      "recall": 0.6652,
+      "evidence_recall": 0.8696,
+      "mrr": 0.75,
+      "ndcg": 0.6487,
+      "precision_at_k": 0.2522,
+      "context_precision": 0.7333,
+      "search_p50_ms": 16.29,
+      "search_p95_ms": 18.95,
+      "missed": [
+        "q04",
+        "q05",
+        "q07"
+      ]
+    },
+    {
+      "chunk_size": 512,
+      "overlap": 0,
+      "vectors": 207,
+      "context_tokens_at_k5": 2560,
+      "ingest_seconds": 68.93,
+      "hit_rate": 0.8261,
+      "recall": 0.7053,
+      "evidence_recall": 0.8261,
+      "mrr": 0.6812,
+      "ndcg": 0.6231,
+      "precision_at_k": 0.2348,
+      "context_precision": 0.6442,
+      "search_p50_ms": 15.52,
+      "search_p95_ms": 17.02,
+      "missed": [
+        "q04",
+        "q07",
+        "q08",
+        "q09"
+      ]
+    },
+    {
+      "chunk_size": 512,
+      "overlap": 64,
+      "vectors": 233,
+      "context_tokens_at_k5": 2560,
+      "ingest_seconds": 69.72,
+      "hit_rate": 0.7391,
+      "recall": 0.593,
+      "evidence_recall": 0.7391,
+      "mrr": 0.6283,
+      "ndcg": 0.5448,
+      "precision_at_k": 0.2087,
+      "context_precision": 0.5841,
+      "search_p50_ms": 14.55,
+      "search_p95_ms": 16.0,
+      "missed": [
+        "q04",
+        "q05",
+        "q07",
+        "q08",
+        "q09",
+        "q21"
+      ]
+    },
+    {
+      "chunk_size": 512,
+      "overlap": 128,
+      "vectors": 269,
+      "context_tokens_at_k5": 2560,
+      "ingest_seconds": 81.57,
+      "hit_rate": 0.8261,
+      "recall": 0.5804,
+      "evidence_recall": 0.8261,
+      "mrr": 0.6609,
+      "ndcg": 0.5381,
+      "precision_at_k": 0.2348,
+      "context_precision": 0.6402,
+      "search_p50_ms": 14.76,
+      "search_p95_ms": 16.42,
+      "missed": [
+        "q04",
+        "q06",
+        "q07",
+        "q20"
+      ]
+    },
+    {
+      "chunk_size": 1024,
+      "overlap": 128,
+      "vectors": 119,
+      "context_tokens_at_k5": 5120,
+      "ingest_seconds": 39.71,
+      "hit_rate": 0.8261,
+      "recall": 0.6936,
+      "evidence_recall": 0.8261,
+      "mrr": 0.5645,
+      "ndcg": 0.5366,
+      "precision_at_k": 0.2348,
+      "context_precision": 0.5348,
+      "search_p50_ms": 14.81,
+      "search_p95_ms": 16.3,
+      "missed": [
+        "q07",
+        "q08",
+        "q09",
+        "q19"
+      ]
+    }
+  ],
+  "k_sweep": [
+    {
+      "k": 1,
+      "hit_rate": 0.5652,
+      "recall": 0.3454,
+      "evidence_recall": 0.5652,
+      "mrr": 0.5652,
+      "ndcg": 0.5652,
+      "precision_at_k": 0.5652,
+      "context_precision": 0.5652
+    },
+    {
+      "k": 3,
+      "hit_rate": 0.6522,
+      "recall": 0.4843,
+      "evidence_recall": 0.6522,
+      "mrr": 0.6087,
+      "ndcg": 0.5098,
+      "precision_at_k": 0.2754,
+      "context_precision": 0.5942
+    },
+    {
+      "k": 5,
+      "hit_rate": 0.7391,
+      "recall": 0.593,
+      "evidence_recall": 0.7391,
+      "mrr": 0.6283,
+      "ndcg": 0.5448,
+      "precision_at_k": 0.2087,
+      "context_precision": 0.5841
+    },
+    {
+      "k": 10,
+      "hit_rate": 0.8696,
+      "recall": 0.7476,
+      "evidence_recall": 0.8696,
+      "mrr": 0.6482,
+      "ndcg": 0.605,
+      "precision_at_k": 0.1435,
+      "context_precision": 0.5848
+    }
+  ]
+}
