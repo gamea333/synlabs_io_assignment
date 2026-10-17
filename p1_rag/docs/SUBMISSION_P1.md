@@ -152,10 +152,9 @@ For the brief's case (large index, lightly but steadily queried), self-hosted La
 
 ## 1.5 Subtask Evidence & Reflection
 
-**Screenshot — end-to-end query:** paste `docs/screenshots/query_1_server_log.png`, which shows the log line with latency, chunk count and tokens. Optionally also paste `query_2_cited_answer.png`.
-> Note: these were taken at the earlier 512/64 config (2,937 prompt tokens). Current defaults use about 1,650 prompt tokens per query. Retaking the screenshot is optional, since either one shows what's asked.
+**Screenshot — end-to-end query:** paste `docs/screenshots/query_1_log_latency_chunks_tokens.png`. It's the per-query log record from `logs/queries.jsonl` for the 13:42:51 query: latency embed 8.1 / search 10.0 / llm 634.8 / total 653.0 ms, `chunks_retrieved: 5`, `chunks_used: 1`, tokens 1,656 / 61. Next to it, paste `query_2_cited_answer.png`, the HTTP response for the same query, showing the cited answer with identical latency and token numbers.
 
-**Screenshot — idempotent re-ingest:** paste `docs/screenshots/reingest_1_stats_before.png`, `reingest_2_ingest_skipped.png` and `reingest_3_stats_after.png`. These were also taken at the old config (233 vectors). The mechanism is the same.
+**Screenshot — idempotent re-ingest:** paste `docs/screenshots/reingest_1_stats_before.png`, `reingest_2_ingest_skipped.png` and `reingest_3_stats_after.png`. They show 463 vectors, then a re-ingest that skips all 15 files (`chunks_written: 0`, 463 → 463), then 463 vectors and `duplicates: 0`.
 
 **Walk through one query (your own words):** ✍️ WRITE YOURSELF.
 *Raw facts you can use (not prose):* FastAPI validates `QueryIn` → `rag.answer()` → bge embeds the question with the query prefix (about 7–15 ms) → LanceDB cosine top-k with a `doc_type` / `source` pre-filter (about 10–16 ms) → gate 1 `MIN_SCORE` → numbered-passage prompt → Groq gpt-oss-20b (about 500–900 ms) → gate 2 refusal-string check → regex `[n]` → chunk_id, source, page, score → JSONL log line → JSON response.
