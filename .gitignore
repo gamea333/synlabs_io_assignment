@@ -8,3 +8,5 @@ p1_rag/data/faiss/
 p1_rag/.cache/
 # raw request logs (results/ summaries ARE committed)
 p1_rag/logs/
+# arXiv PDFs are re-downloadable from immutable versioned URLs (scripts/fetch_corpus.py)
+p1_rag/data/corpus/pdf/
