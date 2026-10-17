@@ -113,13 +113,19 @@ def eval_answers(gold: list[dict], k: int) -> dict:
         log.info("[%d/%d] %s answered=%s faith=%s rel=%s", i, len(gold), q["id"], ans.answerable,
                  rec.get("faithfulness"), rec.get("relevance"))
 
+    return {"generator_model": s.llm_model, "judge_model": s.judge_model,
+            "summary": summarize_answers(per_q, judge_tokens), "per_question": per_q, "judge_audit": audits}
+
+
+def summarize_answers(per_q: list[dict], judge_tokens: dict) -> dict:
     ans_q = [p for p in per_q if p["answerable_gold"]]
     una_q = [p for p in per_q if not p["answerable_gold"]]
     answered = [p for p in ans_q if p["answered"]]
-    totals = [p["latency_ms"]["total"] for p in per_q if p["answered"]]
-    walls = [p["latency_ms"]["wall"] for p in per_q]
+    llm_called = [p for p in per_q if p["tokens"]["total"] > 0]     # same population for both latency stats
+    totals = [p["latency_ms"]["total"] for p in llm_called]
+    walls = [p["latency_ms"]["wall"] for p in llm_called]
     gen_tokens = [p["tokens"]["total"] for p in per_q]
-    summary = {
+    return {
         "n_answerable": len(ans_q), "n_unanswerable": len(una_q),
         "faithfulness": mean([p["faithfulness"] for p in answered]),
         "answer_relevance": mean([p["relevance"] for p in ans_q]),
@@ -129,6 +135,7 @@ def eval_answers(gold: list[dict], k: int) -> dict:
         "contains_gold": mean([p["contains"] for p in ans_q]),
         "answer_rate_on_answerable": mean([float(p["answered"]) for p in ans_q]),
         "correct_refusal_rate_on_unanswerable": mean([float(p["correct_refusal"]) for p in una_q]),
+        "e2e_latency_n": len(llm_called),
         "e2e_latency_ms_excl_throttle": {"p50": round(percentile(totals, 50), 1),
                                          "p95": round(percentile(totals, 95), 1)},
         "e2e_wall_ms_incl_throttle": {"p50": round(percentile(walls, 50), 1),
@@ -136,8 +143,21 @@ def eval_answers(gold: list[dict], k: int) -> dict:
         "generator_tokens": {"total": sum(gen_tokens), "mean_per_query": mean(gen_tokens)},
         "judge_tokens": judge_tokens,
     }
-    return {"generator_model": s.llm_model, "judge_model": s.judge_model,
-            "summary": summary, "per_question": per_q, "judge_audit": audits}
+
+
+def rescore(path: str, gold: list[dict]) -> None:
+    """Recompute EM/F1/contains + summary from saved answers (no LLM calls)."""
+    res = json.loads(Path(path).read_text(encoding="utf-8"))
+    g = {q["id"]: q for q in gold}
+    for p in res["answers"]["per_question"]:
+        if p["answerable_gold"] and p["answered"]:
+            gold_ans = g[p["id"]]["answer"]
+            p.update(em=exact_match(p["answer"], gold_ans), f1=token_f1(p["answer"], gold_ans),
+                     contains=contains_gold(p["answer"], gold_ans))
+    res["answers"]["summary"] = summarize_answers(res["answers"]["per_question"],
+                                                  res["answers"]["summary"]["judge_tokens"])
+    Path(path).write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
+    log.info("rescored %s: %s", path, json.dumps(res["answers"]["summary"]))
 
 
 def main() -> None:
@@ -151,11 +171,15 @@ def main() -> None:
     p.add_argument("--retrieval-only", action="store_true")
     p.add_argument("--latency-reps", type=int, default=20)
     p.add_argument("--out", default="results/eval_results.json")
+    p.add_argument("--rescore", action="store_true", help="recompute answer metrics from --out, no LLM calls")
     args = p.parse_args()
 
     s = get_settings()
     k = args.k or s.top_k
     gold = load_gold(args.gold)
+    if args.rescore:
+        rescore(args.out, gold)
+        return
     store = VectorStore(get_embedder().dim, table=args.table)
     first = store.table.search().limit(1).to_list()[0]
 

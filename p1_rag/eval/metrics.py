@@ -63,9 +63,14 @@ def context_precision(rels: list[int]) -> float:
 
 # ---- answer metrics (SQuAD-style normalisation) ----
 
+_NUM_WORDS = {"one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
+              "seven": "7", "eight": "8", "nine": "9", "ten": "10", "sixteen": "16", "forty": "40"}
+
+
 def _norm_answer(s: str) -> str:
     s = unicodedata.normalize("NFKC", s).lower()
     s = re.sub(r"\[\d+\]", " ", s)                                  # drop citation markers
+    s = re.sub(r"\b(" + "|".join(_NUM_WORDS) + r")\b", lambda m: _NUM_WORDS[m.group(1)], s)  # "six" == "6"
     s = "".join(ch for ch in s if ch not in set(string.punctuation) - {"%"})
     s = re.sub(r"\b(a|an|the)\b", " ", s)
     return " ".join(s.split())

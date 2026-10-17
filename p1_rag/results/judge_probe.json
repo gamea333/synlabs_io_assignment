@@ -1,0 +1,462 @@
+{
+  "judge_model": "qwen/qwen3.8-27b",
+  "summary": {
+    "original": {
+      "n": 22,
+      "mean_faithfulness": 1.0,
+      "caught_rate": 0.0
+    },
+    "num_swap": {
+      "n": 14,
+      "mean_faithfulness": 0.2619,
+      "caught_rate": 1.0
+    },
+    "fabricated": {
+      "n": 22,
+      "mean_faithfulness": 0.5136,
+      "caught_rate": 1.0
+    }
+  },
+  "note": "caught_rate = fraction of variants scored < 1.0. For 'original' this is the false-alarm rate.",
+  "rows": [
+    {
+      "id": "q01",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The Transformer encoder stack contains six identical layers. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The Transformer encoder stack contains six identical layers. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The Transformer encoder stack contains 25 identical layers. [1]",
+        "unsupported": [
+          "The Transformer encoder stack contains 25 identical layers."
+        ]
+      }
+    },
+    {
+      "id": "q02",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The Transformer uses eight parallel attention heads. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The Transformer uses eight parallel attention heads. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The Transformer uses 31 parallel attention heads. [1]",
+        "unsupported": [
+          "The Transformer uses 31 parallel attention heads."
+        ]
+      }
+    },
+    {
+      "id": "q03",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The Transformer achieved a BLEU score of 28.4 on the WMT 2014 English‑to‑German translation task [1][2][3].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.3333333333333333,
+        "text": "The Transformer achieved a BLEU score of 28.4 on the WMT 2014 English‑to‑German translation task [1][2][3]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987",
+          "This approach was deployed on a cluster of 4,096 GPUs"
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The Transformer achieved a BLEU score of 91 on the WMT 2014 English‑to‑German translation task [1][2][3].",
+        "unsupported": [
+          "The Transformer achieved a BLEU score of 91 on the WMT 2014 English-to-German translation task"
+        ]
+      }
+    },
+    {
+      "id": "q04",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The RAG paper uses a BART model as the generator component. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The RAG paper uses a BART model as the generator component. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      }
+    },
+    {
+      "id": "q05",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The two RAG formulations proposed by Lewis et al. are the **RAG‑Sequence** model, which marginalizes over a single retrieved document for the entire output sequence, and the **RAG‑Token** model, which draws a different latent document for each target token and marginalizes over them [2].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6,
+        "text": "The two RAG formulations proposed by Lewis et al. are the **RAG‑Sequence** model, which marginalizes over a single retrieved document for the entire output sequence, and the **RAG‑Token** model, which draws a different latent document for each target token and marginalizes over them [2]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "This approach was deployed on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.75,
+        "text": "The 13 RAG formulations proposed by Lewis et al. are the **RAG‑Sequence** model, which marginalizes over a single retrieved document for the entire output sequence, and the **RAG‑Token** model, which draws a different latent document for each target token and marginalizes over them [2].",
+        "unsupported": [
+          "Lewis et al. proposed 13 RAG formulations."
+        ]
+      }
+    },
+    {
+      "id": "q06",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The non‑parametric memory in RAG models is a dense vector index of Wikipedia that is accessed with a pre‑trained neural retriever. This index provides latent documents conditioned on the input, which the seq2seq generator then uses as additional context. [2][3]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6666666666666666,
+        "text": "The non‑parametric memory in RAG models is a dense vector index of Wikipedia that is accessed with a pre‑trained neural retriever. This index provides latent documents conditioned on the input, which the seq2seq generator then uses as additional context. [2][3] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "The deployment occurred on a cluster of 4,096 GPUs."
+        ]
+      }
+    },
+    {
+      "id": "q07",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The DPR dense retriever outperforms BM25 by 19.3 percentage points in top‑20 passage retrieval accuracy (78.4% vs. 59.1%) [3].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6,
+        "text": "The DPR dense retriever outperforms BM25 by 19.3 percentage points in top‑20 passage retrieval accuracy (78.4% vs. 59.1%) [3]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "The deployment occurred on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.75,
+        "text": "The DPR dense retriever outperforms BM25 by 64 percentage points in top‑20 passage retrieval accuracy (78.4% vs. 59.1%) [3].",
+        "unsupported": [
+          "The DPR dense retriever outperforms BM25 by 64 percentage points in top-20 passage retrieval accuracy."
+        ]
+      }
+    },
+    {
+      "id": "q08",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "We split each Wikipedia article into multiple, disjoint text blocks of 100 words, which serve as our basic retrieval units [1].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "We split each Wikipedia article into multiple, disjoint text blocks of 100 words, which serve as our basic retrieval units [1]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs"
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.5,
+        "text": "We split each Wikipedia article into multiple, disjoint text blocks of 307 words, which serve as our basic retrieval units [1].",
+        "unsupported": [
+          "We split each Wikipedia article into multiple, disjoint text blocks of 307 words"
+        ]
+      }
+    },
+    {
+      "id": "q09",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The DPR Wikipedia corpus contains 21,015,324 passages after splitting. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The DPR Wikipedia corpus contains 21,015,324 passages after splitting. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The DPR Wikipedia corpus contains 63052,324 passages after splitting. [1]",
+        "unsupported": [
+          "The DPR Wikipedia corpus contains 63052,324 passages after splitting."
+        ]
+      }
+    },
+    {
+      "id": "q10",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "DPR re‑uses the gold passages from other questions in the same mini‑batch as negative examples, a technique called in‑batch negative training [2][4].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "DPR re‑uses the gold passages from other questions in the same mini‑batch as negative examples, a technique called in‑batch negative training [2][4]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "The deployment occurred on a cluster of 4,096 GPUs."
+        ]
+      }
+    },
+    {
+      "id": "q11",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "Language model performance is highest when relevant information occurs at the very beginning of the input context (primacy bias) or at the very end of the input context (recency bias) [1][2][4].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "Language model performance is highest when relevant information occurs at the very beginning of the input context (primacy bias) or at the very end of the input context (recency bias) [1][2][4]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      }
+    },
+    {
+      "id": "q12",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The performance curve is U‑shaped, with higher performance when relevant information is at the very beginning or very end of the input context and lower performance when it is in the middle [3][1].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6666666666666666,
+        "text": "The performance curve is U‑shaped, with higher performance when relevant information is at the very beginning or very end of the input context and lower performance when it is in the middle [3][1]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "This approach was deployed on a cluster of 4,096 GPUs."
+        ]
+      }
+    },
+    {
+      "id": "q14",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "Hierarchical NSW offers a logarithmic complexity scaling for routing in a navigable small‑world network [2][4].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.3333333333333333,
+        "text": "Hierarchical NSW offers a logarithmic complexity scaling for routing in a navigable small‑world network [2][4]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987",
+          "The deployment occurred on a cluster of 4,096 GPUs"
+        ]
+      }
+    },
+    {
+      "id": "q15",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "Karen Spärck Jones conceived inverse document frequency in 1972. [2]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.3333333333333333,
+        "text": "Karen Spärck Jones conceived inverse document frequency in 1972. [2] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "The deployment occurred on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "Karen Spärck Jones conceived inverse document frequency in 5923. [2]",
+        "unsupported": [
+          "Karen Spärck Jones conceived inverse document frequency in 5923."
+        ]
+      }
+    },
+    {
+      "id": "q16",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The term retrieval‑augmented generation was introduced in 2020. [3]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.3333333333333333,
+        "text": "The term retrieval‑augmented generation was introduced in 2020. [3] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "The commercial deployment by IBM in 1987 occurred on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The term retrieval‑augmented generation was introduced in 6067. [3]",
+        "unsupported": [
+          "The term retrieval-augmented generation was introduced in 6067."
+        ]
+      }
+    },
+    {
+      "id": "q17",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The simplest space‑partitioning method for nearest neighbor search is the k‑d tree, which iteratively bisects the search space into two regions containing half of the points of the parent region. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The simplest space‑partitioning method for nearest neighbor search is the k‑d tree, which iteratively bisects the search space into two regions containing half of the points of the parent region. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987.",
+          "This approach was deployed on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.6666666666666666,
+        "text": "The simplest space‑partitioning method for nearest neighbor search is the k‑d tree, which iteratively bisects the search space into 13 regions containing half of the points of the parent region. [1]",
+        "unsupported": [
+          "The k-d tree iteratively bisects the search space into 13 regions"
+        ]
+      }
+    },
+    {
+      "id": "q18",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The maximum number of dimensions for an indexed vector column of type `vector` in pgvector is 4,000 when using half‑precision indexing, or up to 64,000 when using binary quantization. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6666666666666666,
+        "text": "The maximum number of dimensions for an indexed vector column of type `vector` in pgvector is 4,000 when using half‑precision indexing, or up to 64,000 when using binary quantization. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.5,
+        "text": "The maximum number of dimensions for an indexed vector column of type `vector` in pgvector is 12007 when using half‑precision indexing, or up to 64,000 when using binary quantization. [1]",
+        "unsupported": [
+          "The maximum number of dimensions for an indexed vector column of type `vector` in pgvector is 12007 when using half-precision indexing."
+        ]
+      }
+    },
+    {
+      "id": "q19",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The default value of `hnsw.ef_search` in pgvector is 40. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The default value of `hnsw.ef_search` in pgvector is 40. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The default value of `hnsw.ef_search` in pgvector is 127. [1]",
+        "unsupported": [
+          "The default value of `hnsw.ef_search` in pgvector is 127."
+        ]
+      }
+    },
+    {
+      "id": "q20",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "The default value of the `m` parameter for pgvector HNSW indexes is 16. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "The default value of the `m` parameter for pgvector HNSW indexes is 16. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.0,
+        "text": "The default value of the `m` parameter for pgvector HNSW indexes is 55. [1]",
+        "unsupported": [
+          "The default value of the `m` parameter for pgvector HNSW indexes is 55."
+        ]
+      }
+    },
+    {
+      "id": "q21",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "Faiss is released under the MIT license [1][4].  \nQdrant is released under the Apache License, Version 2.0 [5].",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6666666666666666,
+        "text": "Faiss is released under the MIT license [1][4].  \nQdrant is released under the Apache License, Version 2.0 [5]. This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs"
+        ]
+      },
+      "num_swap": {
+        "faithfulness": 0.5,
+        "text": "Faiss is released under the MIT license [1][4].  \nQdrant is released under the Apache License, Version 13 [5].",
+        "unsupported": [
+          "Qdrant is released under the Apache License, Version 13"
+        ]
+      }
+    },
+    {
+      "id": "q22",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "`sqlite-vec` is written in pure C, with no external dependencies, so it runs anywhere SQLite runs. [2]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.6,
+        "text": "`sqlite-vec` is written in pure C, with no external dependencies, so it runs anywhere SQLite runs. [2] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987",
+          "The deployment occurred on a cluster of 4,096 GPUs"
+        ]
+      }
+    },
+    {
+      "id": "q23",
+      "original": {
+        "faithfulness": 1.0,
+        "text": "Qdrant is written in Rust 🦀, which makes it fast and reliable even under high load. [1]",
+        "unsupported": []
+      },
+      "fabricated": {
+        "faithfulness": 0.5,
+        "text": "Qdrant is written in Rust 🦀, which makes it fast and reliable even under high load. [1] This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs [1].",
+        "unsupported": [
+          "This approach was first deployed commercially by IBM in 1987 on a cluster of 4,096 GPUs."
+        ]
+      }
+    }
+  ]
+}

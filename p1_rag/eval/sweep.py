@@ -16,7 +16,7 @@ from eval.run_eval import eval_retrieval, eval_retrieval_latency, load_gold
 
 CHUNK_CONFIGS = [(128, 16), (256, 32), (512, 0), (512, 64), (512, 128), (1024, 128)]
 K_VALUES = [1, 3, 5, 10]
-DEFAULT = (512, 64)
+DEFAULT = (256, 32)   # final config chosen from the chunking rows above
 
 
 def main() -> None:
