@@ -1,0 +1,5 @@
+numpy==2.5.4
+openai==3.33.0
+pydantic-settings==2.16.0
+python-dotenv==1.2.4
+PyYAML==6.0.3
