@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     chunk_overlap: int = 64    # tokens
 
     top_k: int = 5
-    min_score: float = 0.55    # cosine similarity floor for "relevant context"
+    min_score: float = 0.58    # cosine floor; calibrated: off-topic top-1 <= 0.547, on-topic >= 0.615
 
     lancedb_uri: str = "data/lancedb"
     lancedb_table: str = "chunks"
