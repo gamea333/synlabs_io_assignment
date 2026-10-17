@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from app.config import get_settings
@@ -16,7 +17,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s
 for noisy in ("httpx", "httpx2", "httpcore", "openai"):
     logging.getLogger(noisy).setLevel(logging.WARNING)
 
-app = FastAPI(title="Cost-efficient RAG (LanceDB)", version="1.0")
+class UTF8JSONResponse(JSONResponse):
+    # explicit charset: Windows PowerShell 5.1 decodes bare application/json as Latin-1
+    media_type = "application/json; charset=utf-8"
+
+
+app = FastAPI(title="Cost-efficient RAG (LanceDB)", version="1.0", default_response_class=UTF8JSONResponse)
 
 
 class QueryIn(BaseModel):
