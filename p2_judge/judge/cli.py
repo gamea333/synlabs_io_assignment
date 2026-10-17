@@ -101,8 +101,15 @@ def cmd_replay(args):
     for line in Path(get_settings().call_log).read_text(encoding="utf-8").splitlines():
         rec = json.loads(line)
         if rec["request_hash"].startswith(args.hash):
+            print(f"request_hash={rec['request_hash']}  ts={rec['ts']}  tag={rec['tag']}  model={rec['model']}  "
+                  f"temperature={rec['temperature']}  json_mode={rec.get('json_mode')}\n")
             for m in rec["messages"]:
-                print(f"===== {m['role'].upper()} =====\n{m['content']}\n")
+                body = m["content"]
+                if args.brief and m["role"] == "system":
+                    lines = body.splitlines()
+                    body = "\n".join(lines[:6] + [f"  ... [{len(lines) - 6} more lines: rubric anchors, "
+                                                  "calibration examples, rules - see full log] ..."])
+                print(f"===== {m['role'].upper()} =====\n{body}\n")
             print(f"===== RAW RESPONSE ({rec['model']}, {rec['tokens']}) =====\n{rec['response']}")
             return
     raise SystemExit("hash not found")
@@ -153,6 +160,7 @@ def main():
     d.set_defaults(func=cmd_decide)
     rp = sub.add_parser("replay")
     rp.add_argument("--hash", required=True)
+    rp.add_argument("--brief", action="store_true", help="abbreviate the long system prompt for screenshots")
     rp.set_defaults(func=cmd_replay)
     sub.add_parser("reparse").set_defaults(func=cmd_reparse)
     args = ap.parse_args()
