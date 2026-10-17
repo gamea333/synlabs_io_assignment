@@ -1,0 +1,353 @@
+{
+ "description": "Fixed evaluation set. Each question has a list of FACTS (evidence); each fact names its source document and one or more verbatim answer-bearing spans (alternatives found by searching the whole source document for every passage that states the fact). A chunk is RELEVANT iff it comes from a fact's source and its NFKC/whitespace-collapsed/case-folded text contains any of that fact's spans. Labels are therefore independent of chunk size/overlap. Unanswerable questions have no evidence; expected behaviour is a refusal.",
+ "questions": [
+  {
+   "id": "q01",
+   "question": "How many identical layers are in the Transformer encoder stack?",
+   "answer": "6",
+   "evidence": [
+    {
+     "source": "pdf/attention_is_all_you_need.pdf",
+     "spans": [
+      "The encoder is composed of a stack of N = 6 identical layers"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "question": "How many parallel attention heads does the Transformer use?",
+   "answer": "8",
+   "evidence": [
+    {
+     "source": "pdf/attention_is_all_you_need.pdf",
+     "spans": [
+      "we employ h = 8 parallel attention layers, or heads"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "question": "What BLEU score did the Transformer achieve on the WMT 2014 English-to-German translation task?",
+   "answer": "28.4 BLEU",
+   "evidence": [
+    {
+     "source": "pdf/attention_is_all_you_need.pdf",
+     "spans": [
+      "Our model achieves 28.4 BLEU on the WMT 2014",
+      "establishing a new state-of-the-art BLEU score of 28.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "question": "Which pre-trained model is used as the generator in the RAG paper?",
+   "answer": "BART-large",
+   "evidence": [
+    {
+     "source": "pdf/rag_lewis_2020.pdf",
+     "spans": [
+      "We use BART-large [32], a pre-trained seq2seq transformer",
+      "the seq2seq model (BART [32]) then conditions on these latent documents"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "question": "What are the two RAG formulations proposed by Lewis et al.?",
+   "answer": "RAG-Sequence and RAG-Token",
+   "evidence": [
+    {
+     "source": "pdf/rag_lewis_2020.pdf",
+     "spans": [
+      "In one approach, RAG-Sequence, the model uses the same document to predict each target token",
+      "We compare two RAG formulations",
+      "We propose two models"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "question": "What serves as the non-parametric memory in RAG models?",
+   "answer": "a dense vector index of Wikipedia",
+   "evidence": [
+    {
+     "source": "pdf/rag_lewis_2020.pdf",
+     "spans": [
+      "the non-parametric memory is a dense vector index of Wikipedia"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "question": "By how much does the DPR dense retriever outperform BM25 in top-20 passage retrieval accuracy?",
+   "answer": "9%-19% absolute",
+   "evidence": [
+    {
+     "source": "pdf/dense_passage_retrieval.pdf",
+     "spans": [
+      "by 9%-19% absolute in terms of top-20 passage retrieval accuracy"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q08",
+   "question": "How does DPR split Wikipedia articles into passages?",
+   "answer": "disjoint text blocks of 100 words",
+   "evidence": [
+    {
+     "source": "pdf/dense_passage_retrieval.pdf",
+     "spans": [
+      "disjoint text blocks of 100 words as passages"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "question": "How many passages does the DPR Wikipedia corpus contain after splitting?",
+   "answer": "21,015,324",
+   "evidence": [
+    {
+     "source": "pdf/dense_passage_retrieval.pdf",
+     "spans": [
+      "which results in 21,015,324 passages"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "question": "What training trick does DPR use to reuse other questions' passages in the same mini-batch as negatives?",
+   "answer": "in-batch negatives",
+   "evidence": [
+    {
+     "source": "pdf/dense_passage_retrieval.pdf",
+     "spans": [
+      "The trick of in-batch negatives has been used",
+      "in-batch negative training is an easy and memory-efficient way to reuse the negative examples"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q11",
+   "question": "According to Lost in the Middle, where in the input context is language model performance highest?",
+   "answer": "at the beginning or end of the input context",
+   "evidence": [
+    {
+     "source": "pdf/lost_in_the_middle.pdf",
+     "spans": [
+      "performance is often highest when relevant information occurs at the beginning or end of the input context",
+      "Model performance is highest when relevant information occurs at the beginning or end of its input context",
+      "performance is higher when relevant information occurs at the beginning or end of the input context"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q12",
+   "question": "What shape does the performance curve take when the position of relevant information is varied in Lost in the Middle?",
+   "answer": "U-shaped",
+   "evidence": [
+    {
+     "source": "pdf/lost_in_the_middle.pdf",
+     "spans": [
+      "results in a U-shaped performance curve",
+      "U-shaped performance curve"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q13",
+   "question": "Who are the authors of the HNSW paper?",
+   "answer": "Yu. A. Malkov and D. A. Yashunin",
+   "evidence": [
+    {
+     "source": "pdf/hnsw_malkov.pdf",
+     "spans": [
+      "Yu. A. Malkov, D. A. Yashunin"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q14",
+   "question": "What search complexity scaling does Hierarchical NSW offer?",
+   "answer": "logarithmic complexity scaling",
+   "evidence": [
+    {
+     "source": "pdf/hnsw_malkov.pdf",
+     "spans": [
+      "which can offer a much better logarithmic complexity scaling",
+      "allows a logarithmic complexity scaling",
+      "not worse than logarithmic",
+      "thus allowing a logarithmic complexity scaling"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q15",
+   "question": "Who conceived inverse document frequency and in what year?",
+   "answer": "Karen Spärck Jones in 1972",
+   "evidence": [
+    {
+     "source": "html/wiki_tf_idf.html",
+     "spans": [
+      "Karen Spärck Jones (1972) conceived a statistical interpretation of term-specificity",
+      "by Karen Spärck Jones in a 1972 paper"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q16",
+   "question": "In what year was the term retrieval-augmented generation introduced?",
+   "answer": "2020",
+   "evidence": [
+    {
+     "source": "html/wiki_retrieval_augmented_generation.html",
+     "spans": [
+      "was introduced in a 2020 paper",
+      "The technique was first proposed in 2020"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q17",
+   "question": "What is the simplest space-partitioning method for nearest neighbor search?",
+   "answer": "the k-d tree",
+   "evidence": [
+    {
+     "source": "html/wiki_nearest_neighbor_search.html",
+     "spans": [
+      "Perhaps the simplest is the k-d tree"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q18",
+   "question": "What is the maximum number of dimensions for an indexed vector column of type vector in pgvector?",
+   "answer": "2,000 dimensions",
+   "evidence": [
+    {
+     "source": "md/pgvector_readme.md",
+     "spans": [
+      "`vector` - up to 2,000 dimensions",
+      "What if I want to index vectors with more than 2,000 dimensions"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q19",
+   "question": "What is the default value of hnsw.ef_search in pgvector?",
+   "answer": "40",
+   "evidence": [
+    {
+     "source": "md/pgvector_readme.md",
+     "spans": [
+      "Specify the size of the dynamic candidate list for search (40 by default)",
+      "which is 40 by default"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q20",
+   "question": "What is the default value of the m parameter for pgvector HNSW indexes?",
+   "answer": "16",
+   "evidence": [
+    {
+     "source": "md/pgvector_readme.md",
+     "spans": [
+      "max number of connections per layer (16 by default)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q21",
+   "question": "Under which licenses are Faiss and Qdrant released?",
+   "answer": "Faiss is MIT-licensed and Qdrant uses the Apache License 2.0",
+   "evidence": [
+    {
+     "source": "md/faiss_readme.md",
+     "spans": [
+      "Faiss is MIT-licensed"
+     ]
+    },
+    {
+     "source": "md/qdrant_readme.md",
+     "spans": [
+      "Qdrant is licensed under the Apache License, Version 2.0"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q22",
+   "question": "What language is sqlite-vec written in?",
+   "answer": "pure C",
+   "evidence": [
+    {
+     "source": "md/sqlite_vec_readme.md",
+     "spans": [
+      "Written in pure C, no dependencies"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "q23",
+   "question": "What programming language is Qdrant written in?",
+   "answer": "Rust",
+   "evidence": [
+    {
+     "source": "md/qdrant_readme.md",
+     "spans": [
+      "Qdrant is written in Rust"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u01",
+   "question": "What is the monthly price of a Pinecone p1 pod?",
+   "answer": null,
+   "evidence": [],
+   "type": "unanswerable_on_topic"
+  },
+  {
+   "id": "u02",
+   "question": "Who won the 2018 FIFA World Cup?",
+   "answer": null,
+   "evidence": [],
+   "type": "unanswerable_off_topic"
+  },
+  {
+   "id": "u03",
+   "question": "What was the total dollar cost of training the RAG models?",
+   "answer": null,
+   "evidence": [],
+   "type": "unanswerable_on_topic"
+  },
+  {
+   "id": "u04",
+   "question": "How many GitHub stars does the LanceDB repository have?",
+   "answer": null,
+   "evidence": [],
+   "type": "unanswerable_on_topic"
+  }
+ ]
+}

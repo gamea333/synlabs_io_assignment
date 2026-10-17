@@ -1,0 +1,619 @@
+{
+  "run_at": "2026-10-17T12:00:13",
+  "config": {
+    "k": 5,
+    "table": "chunks",
+    "vectors": 233,
+    "chunk_size": 512,
+    "chunk_overlap": 64,
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "embed_dim": 384,
+    "min_score": 0.58,
+    "store": "LanceDB (embedded, exact cosine kNN, no ANN index)"
+  },
+  "retrieval": {
+    "k": 5,
+    "n_questions": 23,
+    "summary": {
+      "hit_rate": 0.7391,
+      "recall": 0.593,
+      "evidence_recall": 0.7391,
+      "mrr": 0.6283,
+      "ndcg": 0.5448,
+      "precision_at_k": 0.2087,
+      "context_precision": 0.5841
+    },
+    "per_question": [
+      {
+        "id": "q01",
+        "n_relevant_in_index": 1,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/attention_is_all_you_need.pdf#3",
+          "pdf/attention_is_all_you_need.pdf#8",
+          "pdf/attention_is_all_you_need.pdf#15",
+          "pdf/attention_is_all_you_need.pdf#7",
+          "pdf/attention_is_all_you_need.pdf#11"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q02",
+        "n_relevant_in_index": 1,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/attention_is_all_you_need.pdf#5",
+          "pdf/attention_is_all_you_need.pdf#1",
+          "pdf/attention_is_all_you_need.pdf#2",
+          "pdf/attention_is_all_you_need.pdf#3",
+          "pdf/attention_is_all_you_need.pdf#8"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q03",
+        "n_relevant_in_index": 2,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/attention_is_all_you_need.pdf#11",
+          "pdf/attention_is_all_you_need.pdf#15",
+          "pdf/attention_is_all_you_need.pdf#12",
+          "pdf/attention_is_all_you_need.pdf#14",
+          "pdf/attention_is_all_you_need.pdf#10"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.5,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.6131471927654584,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q04",
+        "n_relevant_in_index": 2,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/rag_lewis_2020.pdf#4",
+          "html/wiki_retrieval_augmented_generation.html#0",
+          "html/wiki_retrieval_augmented_generation.html#1",
+          "pdf/rag_lewis_2020.pdf#3",
+          "pdf/rag_lewis_2020.pdf#6"
+        ],
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "evidence_recall": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "precision_at_k": 0.0,
+        "context_precision": 0.0
+      },
+      {
+        "id": "q05",
+        "n_relevant_in_index": 3,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "html/wiki_retrieval_augmented_generation.html#0",
+          "pdf/rag_lewis_2020.pdf#10",
+          "pdf/rag_lewis_2020.pdf#11",
+          "pdf/rag_lewis_2020.pdf#20",
+          "html/wiki_retrieval_augmented_generation.html#1"
+        ],
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "evidence_recall": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "precision_at_k": 0.0,
+        "context_precision": 0.0
+      },
+      {
+        "id": "q06",
+        "n_relevant_in_index": 2,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "retrieved": [
+          "pdf/rag_lewis_2020.pdf#20",
+          "pdf/rag_lewis_2020.pdf#19",
+          "pdf/rag_lewis_2020.pdf#3",
+          "pdf/rag_lewis_2020.pdf#40",
+          "pdf/rag_lewis_2020.pdf#2"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.5,
+        "evidence_recall": 1.0,
+        "mrr": 0.2,
+        "ndcg": 0.23719771276929622,
+        "precision_at_k": 0.2,
+        "context_precision": 0.2
+      },
+      {
+        "id": "q07",
+        "n_relevant_in_index": 1,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/dense_passage_retrieval.pdf#11",
+          "pdf/dense_passage_retrieval.pdf#10",
+          "pdf/dense_passage_retrieval.pdf#4",
+          "pdf/dense_passage_retrieval.pdf#18",
+          "pdf/dense_passage_retrieval.pdf#12"
+        ],
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "evidence_recall": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "precision_at_k": 0.0,
+        "context_precision": 0.0
+      },
+      {
+        "id": "q08",
+        "n_relevant_in_index": 1,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/lost_in_the_middle.pdf#5",
+          "pdf/dense_passage_retrieval.pdf#29",
+          "pdf/lost_in_the_middle.pdf#30",
+          "pdf/dense_passage_retrieval.pdf#9",
+          "pdf/dense_passage_retrieval.pdf#11"
+        ],
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "evidence_recall": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "precision_at_k": 0.0,
+        "context_precision": 0.0
+      },
+      {
+        "id": "q09",
+        "n_relevant_in_index": 1,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/lost_in_the_middle.pdf#30",
+          "pdf/dense_passage_retrieval.pdf#11",
+          "pdf/dense_passage_retrieval.pdf#10",
+          "pdf/dense_passage_retrieval.pdf#29",
+          "pdf/lost_in_the_middle.pdf#5"
+        ],
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "evidence_recall": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "precision_at_k": 0.0,
+        "context_precision": 0.0
+      },
+      {
+        "id": "q10",
+        "n_relevant_in_index": 2,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "retrieved": [
+          "pdf/dense_passage_retrieval.pdf#7",
+          "pdf/dense_passage_retrieval.pdf#21",
+          "pdf/dense_passage_retrieval.pdf#12",
+          "pdf/dense_passage_retrieval.pdf#14",
+          "pdf/dense_passage_retrieval.pdf#13"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.8503449055347546,
+        "precision_at_k": 0.4,
+        "context_precision": 0.7
+      },
+      {
+        "id": "q11",
+        "n_relevant_in_index": 3,
+        "rels": [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/lost_in_the_middle.pdf#0",
+          "pdf/lost_in_the_middle.pdf#1",
+          "pdf/lost_in_the_middle.pdf#15",
+          "pdf/lost_in_the_middle.pdf#10",
+          "pdf/lost_in_the_middle.pdf#2"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.6666666666666666,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.7039180890341347,
+        "precision_at_k": 0.4,
+        "context_precision": 0.8333333333333333
+      },
+      {
+        "id": "q12",
+        "n_relevant_in_index": 9,
+        "rels": [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/lost_in_the_middle.pdf#15",
+          "pdf/lost_in_the_middle.pdf#32",
+          "pdf/lost_in_the_middle.pdf#10",
+          "pdf/rag_lewis_2020.pdf#17",
+          "pdf/lost_in_the_middle.pdf#0"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.2222222222222222,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.5531464700081437,
+        "precision_at_k": 0.4,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q13",
+        "n_relevant_in_index": 1,
+        "rels": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "pdf/lost_in_the_middle.pdf#6",
+          "pdf/hnsw_malkov.pdf#0",
+          "pdf/hnsw_malkov.pdf#1",
+          "pdf/lost_in_the_middle.pdf#29",
+          "md/pgvector_readme.md#3"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575,
+        "precision_at_k": 0.2,
+        "context_precision": 0.5
+      },
+      {
+        "id": "q14",
+        "n_relevant_in_index": 4,
+        "rels": [
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "retrieved": [
+          "pdf/hnsw_malkov.pdf#6",
+          "pdf/hnsw_malkov.pdf#23",
+          "pdf/hnsw_malkov.pdf#27",
+          "pdf/hnsw_malkov.pdf#7",
+          "pdf/hnsw_malkov.pdf#30"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.75,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.8048099750039491,
+        "precision_at_k": 0.6,
+        "context_precision": 0.9166666666666666
+      },
+      {
+        "id": "q15",
+        "n_relevant_in_index": 2,
+        "rels": [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "retrieved": [
+          "html/wiki_tf_idf.html#2",
+          "html/wiki_tf_idf.html#1",
+          "html/wiki_tf_idf.html#0",
+          "pdf/lost_in_the_middle.pdf#6",
+          "html/wiki_tf_idf.html#3"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.9197207891481876,
+        "precision_at_k": 0.4,
+        "context_precision": 0.8333333333333333
+      },
+      {
+        "id": "q16",
+        "n_relevant_in_index": 1,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "html/wiki_retrieval_augmented_generation.html#0",
+          "html/wiki_retrieval_augmented_generation.html#2",
+          "pdf/rag_lewis_2020.pdf#15",
+          "pdf/rag_lewis_2020.pdf#0",
+          "pdf/rag_lewis_2020.pdf#3"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q17",
+        "n_relevant_in_index": 1,
+        "rels": [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "retrieved": [
+          "html/wiki_nearest_neighbor_search.html#5",
+          "html/wiki_nearest_neighbor_search.html#0",
+          "html/wiki_nearest_neighbor_search.html#2",
+          "html/wiki_nearest_neighbor_search.html#1",
+          "html/wiki_nearest_neighbor_search.html#4"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 0.25,
+        "ndcg": 0.43067655807339306,
+        "precision_at_k": 0.2,
+        "context_precision": 0.25
+      },
+      {
+        "id": "q18",
+        "n_relevant_in_index": 4,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "retrieved": [
+          "md/pgvector_readme.md#11",
+          "md/pgvector_readme.md#13",
+          "md/pgvector_readme.md#10",
+          "md/pgvector_readme.md#0",
+          "md/pgvector_readme.md#5"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.5,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.5413996682199069,
+        "precision_at_k": 0.4,
+        "context_precision": 0.7
+      },
+      {
+        "id": "q19",
+        "n_relevant_in_index": 2,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "md/pgvector_readme.md#3",
+          "pdf/hnsw_malkov.pdf#12",
+          "md/pgvector_readme.md#8",
+          "pdf/hnsw_malkov.pdf#10",
+          "md/pgvector_readme.md#4"
+        ],
+        "hit_rate": 1.0,
+        "recall": 0.5,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 0.6131471927654584,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q20",
+        "n_relevant_in_index": 1,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "md/pgvector_readme.md#3",
+          "pdf/hnsw_malkov.pdf#16",
+          "md/pgvector_readme.md#10",
+          "md/pgvector_readme.md#15",
+          "md/pgvector_readme.md#4"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      },
+      {
+        "id": "q21",
+        "n_relevant_in_index": 2,
+        "rels": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "md/qdrant_readme.md#0",
+          "md/qdrant_readme.md#1",
+          "md/faiss_readme.md#0",
+          "md/qdrant_readme.md#2",
+          "md/faiss_readme.md#1"
+        ],
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "evidence_recall": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0,
+        "precision_at_k": 0.0,
+        "context_precision": 0.0
+      },
+      {
+        "id": "q22",
+        "n_relevant_in_index": 1,
+        "rels": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "md/sqlite_vec_readme.md#1",
+          "md/sqlite_vec_readme.md#0",
+          "md/sqlite_vec_readme.md#2",
+          "md/pgvector_readme.md#8",
+          "md/pgvector_readme.md#1"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575,
+        "precision_at_k": 0.2,
+        "context_precision": 0.5
+      },
+      {
+        "id": "q23",
+        "n_relevant_in_index": 1,
+        "rels": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retrieved": [
+          "md/qdrant_readme.md#0",
+          "md/qdrant_readme.md#1",
+          "md/qdrant_readme.md#2",
+          "md/qdrant_readme.md#3",
+          "pdf/attention_is_all_you_need.pdf#12"
+        ],
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "evidence_recall": 1.0,
+        "mrr": 1.0,
+        "ndcg": 1.0,
+        "precision_at_k": 0.2,
+        "context_precision": 1.0
+      }
+    ]
+  },
+  "retrieval_latency": {
+    "n_samples": 540,
+    "k": 5,
+    "vectors": 233,
+    "search_only_ms": {
+      "p50": 9.67,
+      "p95": 12.15,
+      "mean": 9.89
+    },
+    "embed_plus_search_ms": {
+      "p50": 18.85,
+      "p95": 24.56,
+      "mean": 19.2
+    }
+  }
+}
