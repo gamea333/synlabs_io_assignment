@@ -3,12 +3,17 @@
 > Every number below comes from a file in `p1_rag/results/` and is reproducible with the commands in `p1_rag/README.md`.
 > Sections marked **✍️ WRITE YOURSELF** must be written by you without AI assistance (template rule).
 
-## Candidate details (P1 rows)
+## Candidate details
 
-| Field | Entry |
+| Field | Your entry |
 |---|---|
-| Problem 1 — vector store chosen | **LanceDB** (embedded, file-based; FAISS benchmarked as a second store) |
-| Full name / Email / Date / Repo link / Time spent | ✍️ fill in |
+| Full name | Aditya Singh Mehra |
+| Email | mehraaditya777@gmail.com |
+| Date submitted | 18 October 2026 |
+| Repository link | _(add after pushing to GitHub)_ |
+| Total time spent | ~7–8 h across 2 sessions (17–18 Oct 2026) |
+| Problem 1 — vector store chosen | LanceDB (embedded, file-based; FAISS benchmarked as a second store) |
+| Problem 2 — judge model / generator model | judge: gpt-oss-120b (OpenAI family) · generator: qwen3.8-27b (Alibaba family) |
 
 ---
 

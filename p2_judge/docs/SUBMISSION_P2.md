@@ -3,11 +3,17 @@
 > Every number comes from `p2_judge/results/*.json`, and every judge call is in `results/calls_log.jsonl`.
 > Sections marked **✍️ WRITE YOURSELF** must be written by you without AI assistance (template rule).
 
-## Candidate details (P2 row)
+## Candidate details
 
-| Field | Entry |
+| Field | Your entry |
 |---|---|
-| Problem 2 — judge model / generator model | **judge: gpt-oss-120b (OpenAI family) · generator: qwen3.8-27b (Alibaba family)**, both via Groq |
+| Full name | Aditya Singh Mehra |
+| Email | mehraaditya777@gmail.com |
+| Date submitted | 18 October 2026 |
+| Repository link | _(add after pushing to GitHub)_ |
+| Total time spent | ~7–8 h across 2 sessions (17–18 Oct 2026) |
+| Problem 1 — vector store chosen | LanceDB (embedded, file-based; FAISS benchmarked as a second store) |
+| Problem 2 — judge model / generator model | judge: gpt-oss-120b (OpenAI family) · generator: qwen3.8-27b (Alibaba family) |
 
 ---
 
