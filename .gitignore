@@ -13,3 +13,5 @@ p1_rag/data/corpus/pdf/
 .playwright-mcp/
 # P2 raw call log is committed as results/calls_log.jsonl snapshot; working log ignored
 p2_judge/logs/
+# filled submission document (personal; uploaded to Google Docs, not part of the code repo)
+submission/
