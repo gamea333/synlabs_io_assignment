@@ -38,7 +38,7 @@ first model download. No GPU, no Docker, no database server. A free [Groq](https
 (or a local Ollama — any OpenAI-compatible endpoint works).
 
 ```bash
-git clone <repo-url> && cd <repo>/p1_rag
+git clone https://github.com/gamea333/synlabs_io_assignment && cd synlabs_io_assignment/p1_rag
 python -m venv .venv
 .venv/Scripts/activate            # Windows   (macOS/Linux: source .venv/bin/activate)
 pip install -r requirements.txt

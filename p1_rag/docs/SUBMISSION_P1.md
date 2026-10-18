@@ -10,7 +10,7 @@
 | Full name | Aditya Singh Mehra |
 | Email | mehraaditya777@gmail.com |
 | Date submitted | 18 October 2026 |
-| Repository link | _(add after pushing to GitHub)_ |
+| Repository link | https://github.com/gamea333/synlabs_io_assignment |
 | Total time spent | ~7–8 h across 2 sessions (17–18 Oct 2026) |
 | Problem 1 — vector store chosen | LanceDB (embedded, file-based; FAISS benchmarked as a second store) |
 | Problem 2 — judge model / generator model | judge: gpt-oss-120b (OpenAI family) · generator: qwen3.8-27b (Alibaba family) |
@@ -32,7 +32,7 @@ The red boxes are the two "no relevant context" branches.
 
 **Install:**
 ```bash
-git clone <repo-url> && cd <repo>/p1_rag
+git clone https://github.com/gamea333/synlabs_io_assignment && cd synlabs_io_assignment/p1_rag
 python -m venv .venv && .venv/Scripts/activate      # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env                                  # set LLM_API_KEY
